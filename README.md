@@ -2,8 +2,10 @@
 
 ## Development requirements:
 
-Erlang/OTP ≥ 21 (use [kerl](https://github.com/kerl/kerl))
-Elixir ≥ 1.7 (use [kiex](https://github.com/taylor/kiex))
+* Erlang/OTP ≥ 21 (use [kerl](https://github.com/kerl/kerl))
+* Elixir ≥ 1.7 (use [kiex](https://github.com/taylor/kiex))
+* NPM ≥ 5.6
+* Node ≥ 8.11
 
 To start your Phoenix server:
   * Install dependencies with `mix deps.get`
