@@ -20,7 +20,7 @@
           <div class="header__tagline">Great music should be shared</div>
         </div>
         <nav class="navigation">
-          <a class="navigation__item active" href="">Latest</a>
+          <a class="navigation__item active hidden-xs" href="">Latest</a>
           <a class="navigation__item" href="">Random</a>
         </nav>
       </div>

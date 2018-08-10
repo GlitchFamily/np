@@ -3,4 +3,78 @@
 /* ----------------------------------------------------------- */
 
 @media (max-width: $small) {
+  /* Common
+  -------------------------------------------------------------- */
+
+  .container {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+  /* Header
+  -------------------------------------------------------------- */
+
+  .header {
+    margin-bottom: 5rem;
+  }
+
+  .header--home {
+    margin-top: 0;
+  }
+
+  .header > .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .home-head {
+    margin-bottom: 7rem;
+    padding-bottom: 4rem;
+  }
+
+  .header__tagline {
+    display: none;
+  }
+
+  /* Footer
+  -------------------------------------------------------------- */
+
+  .footer {
+    padding-top: 13rem;
+    padding-bottom: 5rem;
+    background-position: center 6rem;
+  }
+
+  /* Home
+  -------------------------------------------------------------- */
+
+  .home-head__container {
+    max-width: 36rem;
+  }
+
+  .home-head__title {
+    font-size: 6rem;
+  }
+
+  .home-head__subtitle {
+    margin-top: 1.2rem;
+    font-size: 1.7rem;
+  }
+
+  .home-about {
+    padding-top: 10rem;
+    font-size: 2rem;
+  }
+
+  /* Catalog
+  -------------------------------------------------------------- */
+
+  .catalog-item:link,
+  .catalog-item:visited {
+    font-size: 1.6rem;
+  }
+
+  .catalog-item__album {
+    font-size: 2rem;
+  }
 }

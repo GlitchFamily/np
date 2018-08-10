@@ -51,6 +51,20 @@
   line-height: 3.8rem;
 }
 
+.header__logo:active,
+.header__logo:focus {
+  text-decoration: underline;
+
+  text-decoration-skip-ink: auto;
+}
+
+.header__logo:active::before,
+.header__logo:focus::after,
+.header__logo:active::before,
+.header__logo:focus::after {
+  content: none;
+}
+
 .header__tagline {
   margin-bottom: .4rem;
   color: rgba($color-light-text, .7);

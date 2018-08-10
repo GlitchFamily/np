@@ -29,12 +29,14 @@ $grid-mb: 2rem;
   @include grid(4, $grid-gutter, 6rem);
 }
 
-@media (max-width: $xsmall) {
-  .grid-1-xs {
-    @include grid(1);
+@media (max-width: $small) {
+  .grid-catalog {
+    @include grid(3, $grid-gutter, 4rem);
   }
+}
 
-  .grid-2-xs {
-    @include grid(2);
+@media (max-width: $xsmall) {
+  .grid-catalog {
+    @include grid(2, 1rem, 3rem);
   }
 }
