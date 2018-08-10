@@ -1,60 +1,26 @@
+//
+// (TEXT) PARAMS
+// =================
+// 1. Namespace
+// 2. Intensity
+// 3. Text color
+// 4. Background color (flat)
+// 5. Highlight #1 color
+// 6. Highlight #2 color
+// 7. Width (px)
+// 8. Height (px)
+//
 
 .glitch,
 .glitch--hover:hover {
-  position:relative;
+  position: relative;
+
+  @include textGlitch("glitchText", 50, $color-bg-head, red, blue, 9999, 100);
 }
 
-@keyframes noise-anim {
-  $steps:20;
-  @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
-    }
-  }
-}
-
-.glitch::after,
-.glitch--hover:hover::after {
-  content:attr(data-text);
-  position:absolute;
-  left:.2rem;
-  text-shadow:-.1rem 0 red;
-  top:0;
-  color:white;
-  background: $color-bg-head;
-  overflow:hidden;
-  clip:rect(0,90rem,0,0);
-  animation:noise-anim 2s infinite linear alternate-reverse;
-}
 
 .glitch:nth-child(2)::after,
-.glitch--hover:hover:nth-child(2)::after {
-  animation-delay: .3s;
-}
-
-@keyframes noise-anim-2 {
-  $steps:20;
-  @for $i from 0 through $steps{
-    #{percentage($i*(1/$steps))}{
-      clip:rect(random(100)+px,9999px,random(100)+px,0);
-    }
-  }
-}
-
-.glitch::before,
-.glitch--hover:hover::before {
-  content:attr(data-text);
-  position:absolute;
-  left:-.2rem;
-  text-shadow:1rem 0 blue;
-  top:0;
-  color:white;
-  background: $color-bg-head;
-  overflow:hidden;
-  clip:rect(0,90rem,0,0);
-  animation:noise-anim-2 3s infinite linear alternate-reverse;
-}
-
+.glitch--hover:hover:nth-child(2)::after,
 .glitch:nth-child(2)::before,
 .glitch--hover:hover:nth-child(2)::before {
   animation-delay: .3s;
