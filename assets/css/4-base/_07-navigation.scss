@@ -2,5 +2,44 @@
 /* == navigation */
 /* ----------------------------------------------------------- */
 
-.navigation {
+
+.navigation__item:link,
+.navigation__item:visited {
+  position: relative;
+  margin-left: 4rem;
+  color: rgba($color-light-text, .8);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navigation__item::after {
+  position: absolute;
+  top: calc(100% + .8rem);
+  left: calc(50% - .3rem);
+  width: .6rem;
+  height: .6rem;
+  border-radius: 4.2rem;
+  background-color: $color-secondary;
+  content: "";
+  opacity: 0;
+  transition: all .15s cubic-bezier(.68,-.55,.27,1.55);
+  transform: translateY(-2rem);
+}
+
+.navigation__item.active,
+.navigation__item:hover,
+.navigation__item:active,
+.navigation__item:focus {
+  color: $color-light-text;
+}
+
+.navigation__item:active {
+  box-shadow: none;
+}
+
+.navigation__item.active::after,
+.navigation__item:active::after,
+.navigation__item:focus::after {
+  opacity: 1;
+  transform: translateY(0);
 }
