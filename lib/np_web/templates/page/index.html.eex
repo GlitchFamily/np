@@ -1,35 +1,71 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>A productive web framework that<br/>does not compromise speed and maintainability.</p>
-</section>
+<div class="container">
+  <div class="home-head">
+    <div class="home-head__container">
+      <h1 class="home-head__title" data-text="Handpicked Albums"><span class="glitch" data-text="Handpicked">Handpicked</span> <span class="glitch" data-text="Albums">Albums</span></h1>
+      <p class="home-head__subtitle">by the Glitch Family</p>
+    </div>
+  </div>
+</div>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">v1.4 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-    </ul>
-  </article>
+<div class="content">
+  <div class="container">
+    <div class="grid grid-catalog">
+      <a class="catalog-item" href="">
+        <h2 class="catalog-item__album">Corpo-Mente</h2>
+        <div class="catalog-item__artist">by Corpo-Mente</div>
+        <img class="catalog-item__visual" src="/images/covers/corpo-mente.jpg" alt="">
+      </a>
+      <a class="catalog-item" href="">
+        <h2 class="catalog-item__album">Who Bit the Moon</h2>
+        <div class="catalog-item__artist">by David Maxim Micic</div>
+        <img class="catalog-item__visual" src="/images/covers/who-bit-the-moon.jpg" alt="">
+      </a>
+      <a class="catalog-item" href="">
+        <h2 class="catalog-item__album">Kodama</h2>
+        <div class="catalog-item__artist">by Alcest</div>
+        <img class="catalog-item__visual" src="/images/covers/kodama.jpg" alt="">
+      </a>
+      <a class="catalog-item" href="">
+        <h2 class="catalog-item__album">17 Deutsche Tänze</h2>
+        <div class="catalog-item__artist">by Rotfront</div>
+        <img class="catalog-item__visual" src="/images/covers/17-deutsche-tanze.jpg" alt="">
+      </a>
+      <a class="catalog-item" href="">
+        <h2 class="catalog-item__album">Londinium</h2>
+        <div class="catalog-item__artist">by Archive</div>
+        <img class="catalog-item__visual" src="/images/covers/londinium.jpg" alt="">
+      </a>
+      <a class="catalog-item" href="">
+        <h2 class="catalog-item__album">Shrine of New Generation Slaves</h2>
+        <div class="catalog-item__artist">by Riverside</div>
+        <img class="catalog-item__visual" src="/images/covers/shrine-of-new-generation-slaves.jpg" alt="">
+      </a>
+      <a class="catalog-item" href="">
+        <h2 class="catalog-item__album">Aokigahara</h2>
+        <div class="catalog-item__artist">by Harakiri for the Sky</div>
+        <img class="catalog-item__visual" src="/images/covers/aokigahara.jpg" alt="">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <div class="container">
+    <a class="btn btn--primary btn--big w100" href="">Load moaaaar</a>
+    <div class="pagination__side">
+      <span class="btn btn--secondary w100 disabled" href="">Prev</span>
+      <a class="btn btn--secondary w100" href="">Next</a>
+    </div>
+  </div>
+</div>
+
+<section class="home-about">
+  <div class="container">
+    <h2 class="visually-hidden">About</h2>
+    <p>At Glitch Family we love music, I mean we LOVE music! And we also LOVE great album covers. So we decided to make a place where we can showcase albums that are dear to us.</p>
+    <p>
+      This is Now Playing.<br>
+      A Glitch Family’s project.
+    </p>
+  </div>
 </section>

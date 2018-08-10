@@ -3,4 +3,10 @@
 /* ----------------------------------------------------------- */
 
 .content {
+  border-top: 6rem solid $color-bg-head;
+  background-color: $color-primary;
+}
+
+.content > :first-child {
+  margin-top: -6rem;
 }

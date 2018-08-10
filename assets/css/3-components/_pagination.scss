@@ -4,51 +4,31 @@
  */
 
 /* ----------------------------------------------------------- */
-/* == configuration */
-/* ----------------------------------------------------------- */
-
-
-$pagination-border-radius: .2rem;
-$pagination-border: .1rem solid grey;
-$pagination-hover-color: $color-secondary;
-$pagination-current-bg: $color-primary;
-$pagination-current-color: #fff;
-
-
-/* ----------------------------------------------------------- */
 /* == module */
 /* ----------------------------------------------------------- */
 
 .pagination {
   display: inline-block;
-  margin: 2rem 0;
+  padding-top: 10rem;
+  width: 100%;
   border-radius: .4rem;
+  background-color: $color-primary;
 }
 
-.pagination,
-.pagination li {
-  margin: 0;
-  padding: 0;
+.pagination > .container {
+  max-width: 68rem;
+  width: 90%;
 }
 
-.pagination li {
-  display: inline-block;
-  margin: 0 .3rem 1em;
-  list-style-type: none;
+.pagination__side {
+  display: flex;
+  margin-top: 2rem;
+  margin-right: -1rem;
+  margin-left: -1rem;
 }
 
-.pagination li a,
-.pagination li > span {
-  padding: .3em .6em;
-  border: $pagination-border;
-  border-radius: $pagination-border-radius;
-}
-
-.pagination li a:hover {
-  color: $pagination-hover-color;
-}
-
-.pagination li.current a {
-  background-color: $pagination-current-bg;
-  color: $pagination-current-color;
+.pagination__side > * {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  width: 50%;
 }

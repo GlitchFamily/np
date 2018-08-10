@@ -7,7 +7,12 @@
     <title>Now Playing ∴ Handpicked Albums by the Glitch Family</title>
     <link rel="stylesheet" href="<%= Routes.static_url(@conn, "/css/app.css") %>"/>
   </head>
-  <body >
+  <body>
+    <% if @conn.assigns.is_home? do %>
+      <header class="header header--home">
+    <% else %>
+      <header class="header">
+    <% end %>
     <header class="header header--home">
       <div class="container">
         <div class="header__left">

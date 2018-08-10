@@ -1,0 +1,49 @@
+/* ----------------------------------------------------------- */
+/* == Catalog page */
+/* ----------------------------------------------------------- */
+
+.catalog-item,
+.catalog-item:link,
+.catalog-item:visited {
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  color: rgba($color-light-text, .8);
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+
+.catalog-item__visual {
+  position: relative;
+  flex-shrink: 0;
+  order: -1;
+  overflow: hidden;
+  width: 100%;
+  border-radius: .3rem;
+  background-color: rgba(#fff, .3);
+  box-shadow: 0 .3rem 2.2rem 0 rgba(0,0,0,.10);
+  transition: all .2s;
+}
+
+.catalog-item:hover .catalog-item__visual,
+.catalog-item:active .catalog-item__visual,
+.catalog-item:focus .catalog-item__visual {
+  transform: scale3d(1.05, 1.05, 1.05);
+}
+
+.catalog-item:active .catalog-item__visual,
+.catalog-item:focus .catalog-item__visual {
+  box-shadow: $focus-ring;
+}
+
+.catalog-item__album {
+  margin: 0;
+  margin-top: 1.5rem;
+  color: $color-light-text;
+  font-weight: 900;
+  font-size: 2.4rem;
+}
+
+.catalog-item__artist {
+  margin-top: .8rem;
+}
