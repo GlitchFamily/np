@@ -3,17 +3,25 @@
 /* ----------------------------------------------------------- */
 
 body {
-  background-color: #fff;
-  color: $color-dark-text;
+  background-color: $color-bg-head;
+  color: $color-light-text;
   font-family: $fontstack1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
   margin-right: auto;
   margin-left: auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  max-width: 102.4rem;
+  padding-right: 4rem;
+  padding-left: 4rem;
+  max-width: 138rem;
+}
+
+::selection {
+  background-color: rgba($color-secondary, .8);
+  color: $color-light-text;
 }
 
 /* titles

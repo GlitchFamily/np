@@ -5,21 +5,26 @@
 // palette
 // --------------------------------------------------------------
 
-$color-primary: #3498db;
-$color-secondary: #1abc9c;
-$color-tertiary: #34495e;
+$color-primary: #0e1537;
+$color-secondary: #ff2749;
+$color-tertiary: #fec156;
 $color-info: #2185d0;
+
+// backgrounds
+// --------------------------------------------------------------
+
+$color-bg-head: #0e1848;
 
 // texts
 // --------------------------------------------------------------
 
-$color-light-text: #fcfcfc;
+$color-light-text: #fff;
 $color-dark-text: #000;
 
 // links
 // --------------------------------------------------------------
 
-$color-link: $color-primary;
+$color-link: $color-light-text;
 
 // brand
 // --------------------------------------------------------------
