@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<%= Routes.static_url(@conn, "/css/app.css") %>"/>
   </head>
   <body>
-    <% if @conn.assigns.is_home? do %>
+    <% if @conn.private.phoenix_controller == NpWeb.PageController && @conn.private.phoenix_action == :index do %>
       <header class="header header--home">
     <% else %>
       <header class="header">
