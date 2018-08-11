@@ -14,22 +14,13 @@
   /* Header
   -------------------------------------------------------------- */
 
-  .header {
-    margin-bottom: 5rem;
-  }
-
   .header--home {
-    margin-top: 0;
+    padding-top: 0;
   }
 
   .header > .container {
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-
-  .home-head {
-    margin-bottom: 7rem;
-    padding-bottom: 4rem;
   }
 
   .header__tagline {
@@ -47,6 +38,16 @@
 
   /* Home
   -------------------------------------------------------------- */
+
+  .home-head {
+    padding-top: 5rem;
+    padding-bottom: 7rem;
+  }
+
+  .home-head > .container {
+    padding-bottom: 4rem;
+    background-position: calc(100% - 2rem) center;
+  }
 
   .home-head__container {
     max-width: 36rem;

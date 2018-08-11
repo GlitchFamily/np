@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="home-head">
+<div class="home-head">
+  <div class="container">
     <div class="home-head__container">
       <h1 class="home-head__title" data-text="Handpicked Albums"><span class="glitch" data-text="Handpicked">Handpicked</span> <span class="glitch" data-text="Albums">Albums</span></h1>
       <p class="home-head__subtitle">by the Glitch Family</p>

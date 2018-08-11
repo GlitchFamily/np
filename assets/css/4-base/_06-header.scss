@@ -6,12 +6,12 @@
   position: relative;
   position: sticky;
   top: 0;
-  margin-bottom: 9rem;
+  background-color: $color-bg-head;
 }
 
 .header--home {
   position: relative;
-  margin-top: 2.5rem;
+  padding-top: 2.5rem;
 }
 
 .header--home::before {

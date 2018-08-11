@@ -6,10 +6,15 @@
 -------------------------------------------------------------- */
 
 .home-head {
-  margin-bottom: 10rem;
+  padding-top: 9rem;
+  padding-bottom: 10rem;
+  background: $color-bg-head;
+}
+
+.home-head > .container {
   padding-bottom: 6rem;
   background: url("/images/illustration.svg") no-repeat;
-  background-position: right center;
+  background-position: calc(100% - 4rem) center;
   background-size: auto 100%;
 }
 
