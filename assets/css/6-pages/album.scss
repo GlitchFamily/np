@@ -111,3 +111,7 @@
 .album-links__item:focus {
   background-color: rgba($color-light-text, .1);
 }
+
+.album-links__item svg {
+  vertical-align: middle;
+}
