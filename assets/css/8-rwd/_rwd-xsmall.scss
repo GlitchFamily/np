@@ -27,7 +27,6 @@
   /* Home
   -------------------------------------------------------------- */
 
-
   .home-head__title {
     font-size: 4.5rem;
   }
@@ -52,5 +51,34 @@
   .catalog-item__artist {
     margin-top: .3rem;
     font-size: 1.4rem;
+  }
+
+  /* Album
+  -------------------------------------------------------------- */
+
+  .album-layout {
+    display: block;
+    text-align: center;
+  }
+
+  .album-cover {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 80%;
+    width: inherit;
+  }
+
+  .album-infos {
+    padding-top: 0;
+  }
+
+  .album-tags,
+  .album-links__list {
+    justify-content: center;
+  }
+
+  .album-tags,
+  .album-links {
+    margin-top: 2rem;
   }
 }

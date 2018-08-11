@@ -78,4 +78,48 @@
   .catalog-item__album {
     font-size: 2rem;
   }
+
+  /* Album
+  -------------------------------------------------------------- */
+
+  .album {
+    margin-bottom: 5rem;
+    border-top-width: 12rem;
+  }
+
+  .album > .container {
+    margin-top: -8.7rem;
+  }
+
+  .album-cover {
+    margin-left: -3rem;
+    padding: 3rem;
+  }
+
+  .album-infos {
+    margin-left: 0;
+    padding-top: 5rem;
+  }
+
+  .album-name {
+    font-size: 3.5rem;
+    line-height: 5rem;
+  }
+
+  .album-artist {
+    font-size: 1.6rem;
+  }
+
+  .album-tags__item {
+    padding: .4rem 1.5rem .5rem;
+    color: rgba($color-light-text, .8);
+    font-size: 1.3rem;
+  }
+
+  .album-links__item:link,
+  .album-links__item:visited {
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    width: 5rem;
+  }
 }
