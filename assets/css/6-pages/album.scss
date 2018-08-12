@@ -38,6 +38,7 @@
   max-width: 50rem;
   width: 100%;
   border-radius: .6rem;
+  background-color: rgba($color-primary, .5);
   box-shadow: 0 .6rem 4.4rem 0 rgba(0,0,0,.5);
 }
 
@@ -46,14 +47,14 @@
 
 .album-infos {
   margin-left: 1rem;
-  padding-top: 17.3rem;
+  padding-top: 18.3rem;
 }
 
 .album-name {
   margin: 0;
   font-weight: 900;
   font-size: 7rem;
-  line-height: 9rem;
+  line-height: 7rem;
 }
 
 .album-artist {
