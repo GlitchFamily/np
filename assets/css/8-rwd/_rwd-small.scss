@@ -98,12 +98,12 @@
 
   .album-infos {
     margin-left: 0;
-    padding-top: 5rem;
+    padding-top: 5.4rem;
   }
 
   .album-name {
     font-size: 3.5rem;
-    line-height: 5rem;
+    line-height: 4rem;
   }
 
   .album-artist {
@@ -119,7 +119,11 @@
   .album-links__item:link,
   .album-links__item:visited {
     margin-right: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .album-links__item svg {
     width: 5rem;
+    height: 5rem;
   }
 }
