@@ -19,5 +19,5 @@
 
 </ul>
 
-<span><%= link "Edit", to: Routes.album_path(@conn, :edit, @album) %></span>
-<span><%= link "Back", to: Routes.album_path(@conn, :index) %></span>
+<%# <span><%= link "Edit", to: Routes.album_path(@conn, :edit, @album) %1></span> %>
+<%# <span><%= link "Back", to: Routes.album_path(@conn, :index) %1></span> %>

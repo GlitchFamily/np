@@ -38,7 +38,7 @@ defmodule Np.Resources do
       ** (Ecto.NoResultsError)
 
   """
-  def get_album!(hash), do: Repo.get_by(Album, hash)
+  def get_album!(hash), do: Repo.get_by(Album, hash: hash)
 
   def get_albums() do
     Repo.all from a in Album, preload: [:tags]
