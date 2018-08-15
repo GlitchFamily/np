@@ -1,4 +1,7 @@
 defmodule Np.Resources do
+
+  import Ecto.Query
+
   @moduledoc """
   The Resources context.
   """
@@ -36,6 +39,10 @@ defmodule Np.Resources do
 
   """
   def get_album!(id), do: Repo.get!(Album, id)
+
+  def get_albums() do
+    Repo.all from a in Album, preload: [:tags]
+  end
 
   @doc """
   Creates a album.

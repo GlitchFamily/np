@@ -65,4 +65,5 @@ config :np, Np.Repo,
   password: "postgres",
   database: "np_dev",
   hostname: "localhost",
-  pool_size: 10
+  pool_size: 10,
+  timeout: 30_000

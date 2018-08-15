@@ -10,41 +10,13 @@
 <div class="content">
   <div class="container">
     <div class="grid grid-catalog">
+      <%= for album <- @albums do %>
       <a class="catalog-item" href="">
-        <h2 class="catalog-item__album">Corpo-Mente</h2>
-        <div class="catalog-item__artist">by Corpo-Mente</div>
-        <img class="catalog-item__visual" src="/images/covers/corpo-mente.jpg" alt="">
+        <h2 class="catalog-item__album"><%= album.name%></h2>
+        <div class="catalog-item__artist">by <%= album.artist%></div>
+        <img class="catalog-item__visual" src=<%= album.cover %> alt="">
       </a>
-      <a class="catalog-item" href="">
-        <h2 class="catalog-item__album">Who Bit the Moon</h2>
-        <div class="catalog-item__artist">by David Maxim Micic</div>
-        <img class="catalog-item__visual" src="/images/covers/who-bit-the-moon.jpg" alt="">
-      </a>
-      <a class="catalog-item" href="">
-        <h2 class="catalog-item__album">Kodama</h2>
-        <div class="catalog-item__artist">by Alcest</div>
-        <img class="catalog-item__visual" src="/images/covers/kodama.jpg" alt="">
-      </a>
-      <a class="catalog-item" href="">
-        <h2 class="catalog-item__album">17 Deutsche Tänze</h2>
-        <div class="catalog-item__artist">by Rotfront</div>
-        <img class="catalog-item__visual" src="/images/covers/17-deutsche-tanze.jpg" alt="">
-      </a>
-      <a class="catalog-item" href="">
-        <h2 class="catalog-item__album">Londinium</h2>
-        <div class="catalog-item__artist">by Archive</div>
-        <img class="catalog-item__visual" src="/images/covers/londinium.jpg" alt="">
-      </a>
-      <a class="catalog-item" href="">
-        <h2 class="catalog-item__album">Shrine of New Generation Slaves</h2>
-        <div class="catalog-item__artist">by Riverside</div>
-        <img class="catalog-item__visual" src="/images/covers/shrine-of-new-generation-slaves.jpg" alt="">
-      </a>
-      <a class="catalog-item" href="">
-        <h2 class="catalog-item__album">Aokigahara</h2>
-        <div class="catalog-item__artist">by Harakiri for the Sky</div>
-        <img class="catalog-item__visual" src="/images/covers/aokigahara.jpg" alt="">
-      </a>
+      <% end %> 
     </div>
   </div>
 </div>
