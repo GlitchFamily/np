@@ -3,7 +3,6 @@ defmodule NpWeb.PageController do
 
   def index(conn, _params) do
     albums = Np.Resources.get_albums
-    IO.inspect albums, label: "Albums"
     render conn, "index.html", albums: albums
   end
 
