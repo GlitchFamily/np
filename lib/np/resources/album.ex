@@ -11,12 +11,14 @@ defmodule Np.Resources.Album do
     field :name, :string
     
     embeds_one :links, Links do
+      field :amazonmusic, :string
+      field :applemusic, :string
+      field :bandcamp, :string
+      field :deezer, :string
+      field :googleplay, :string
+      field :soundcloud, :string
       field :spotify, :string
       field :youtube, :string
-      field :bandcamp, :string
-      field :soundcloud, :string
-      field :applemusic, :string
-      field :googleplay, :string
     end
 
     many_to_many :tags, Tag,
