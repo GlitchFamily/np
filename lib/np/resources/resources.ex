@@ -38,7 +38,7 @@ defmodule Np.Resources do
       ** (Ecto.NoResultsError)
 
   """
-  def get_album!(id), do: Repo.get!(Album, id)
+  def get_album!(hash), do: Repo.get_by(Album, hash)
 
   def get_albums() do
     Repo.all from a in Album, preload: [:tags]
@@ -58,8 +58,14 @@ defmodule Np.Resources do
   """
   def create_album(attrs \\ %{}) do
     %Album{}
-    |> Album.changeset(attrs)
+    |> Album.changeset(Map.put(attrs, :hash, mkhash()))
     |> Repo.insert()
+  end
+
+  def mkhash() do
+    UUID.uuid1
+    |> String.split("-")
+    |> hd
   end
 
   @doc """

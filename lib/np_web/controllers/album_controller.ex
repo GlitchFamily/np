@@ -25,8 +25,8 @@ defmodule NpWeb.AlbumController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    album = Resources.get_album!(id)
+  def show(conn, %{"hash" => hash}) do
+    album = Resources.get_album!(hash)
     render(conn, "show.html", album: album)
   end
 

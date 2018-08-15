@@ -42,7 +42,8 @@ defmodule Np.MixProject do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
       {:postgrex, "~> 0.13"},
-      {:scrivener_ecto, "~> 1.3.0"}
+      {:scrivener_ecto, "~> 1.3.0"},
+      {:uuid, "~> 1.1.8"}
     ]
   end
 
