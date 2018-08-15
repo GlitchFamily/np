@@ -1,11 +1,1 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     Np.Repo.insert!(%Np.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+Np.Resources.create_album %{name: "Aokigahara", artist: "Harakiri for the Sky", tags: "Black metal, Post-Hardcore", cover: "images/covers/aokigahara.jpg"}
