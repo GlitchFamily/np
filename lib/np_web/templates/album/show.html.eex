@@ -2,14 +2,15 @@
   <div class="container">
     <div class="album-layout">
       <div class="album-cover">
-        <img class="album-cover__visual" src="/images/covers/aokigahara.jpg" alt="Album Cover">
+        <img class="album-cover__visual" src="<%= Routes.static_path(@conn, @album.cover)%>" alt="Album Cover">
       </div>
       <div class="album-infos">
-        <h1 class="album-name">Aokigahara</h1>
-        <strong class="album-artist">by Harakiri for the Sky</strong>
+        <h1 class="album-name"><%= @album.artist %></h1>
+        <strong class="album-artist">by <%= @album.name %></strong>
         <ul class="album-tags">
-          <li class="album-tags__item">Black metal</li>
-          <li class="album-tags__item">Post-Hardcore</li>
+          <%= for tag <- @album.tags do %>
+            <li class="album-tags__item"><%= tag.name %></li>
+          <% end %>
         </ul>
         <div class="album-links">
           Listen on&nbsp;:

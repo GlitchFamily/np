@@ -9,6 +9,7 @@ defmodule Np.Resources.Album do
     field :cover, :string
     field :name, :string
     field :hash, :string
+    field :slug, :string
     
     embeds_one :links, Links do
       field :amazonmusic, :string
@@ -34,10 +35,28 @@ defmodule Np.Resources.Album do
 
     album
     |> cast(attrs, [:name, :cover, :artist, :hash])
+    |> cast_embed(:links)
     |> validate_required([:name, :cover, :artist, :hash])
+    |> put_slug
     |> put_assoc(:tags, tags) 
   end
 
+  def register_changeset(%__MODULE__{}=album, attrs \\ %{}) do
+    album
+    |> changeset(attrs)
+    |> put_change(:links, attrs.links)
+  end
+
+  def put_slug(changeset) do
+    case changeset do
+      %Ecto.Changeset{valid?: true, changes: %{name: name}} ->
+        put_change(changeset, :slug, slugify(name))
+      _ ->
+        changeset
+    end
+  end
+
+  defp slugify(name), do: Slugger.slugify_downcase(name)
 
   @spec parse_tags([String.t]|String.t) :: [String.t]
   def parse_tags(tags) when is_list(tags),   do: tags |> Enum.map(&get_or_insert_tag(&1))

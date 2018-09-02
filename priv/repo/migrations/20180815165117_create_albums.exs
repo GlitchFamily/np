@@ -8,6 +8,7 @@ defmodule Np.Repo.Migrations.CreateAlbums do
       add :artist, :string
       add :hash, :string
       add :links, :map
+      add :slug, :string, null: false
 
       timestamps()
     end
