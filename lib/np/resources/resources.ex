@@ -62,7 +62,6 @@ defmodule Np.Resources do
   def create_album(attrs \\ %{}) do
     attrs = attrs
             |> Map.put(:hash, mkhash())
-            |> Map.put_new(:links, %Links{})
 
     %Album{}
     |> Album.register_changeset(attrs)
