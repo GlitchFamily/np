@@ -3,10 +3,11 @@ defmodule NpWeb.AlbumView do
   alias Np.Resources.Album
 
   def has_links?(%Album{}=album) do
-    al.links
+    album.links
     |> Map.from_struct
     |> Map.delete(:id)
     |> Map.values
-    |> Enum.all(&!is_nil(&1))
+    |> IO.inspect
+    |> Enum.all?(&!is_nil(&1))
   end
 end
