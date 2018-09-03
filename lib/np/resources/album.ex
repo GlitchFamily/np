@@ -23,7 +23,8 @@ defmodule Np.Resources.Album do
     end
 
     many_to_many :tags, Tag,
-      join_through: "tagging"
+      join_through: "tagging",
+      on_replace: :delete
 
     timestamps()
   end
@@ -42,9 +43,10 @@ defmodule Np.Resources.Album do
   end
 
   def register_changeset(%__MODULE__{}=album, attrs \\ %{}) do
+    links = attrs.links |> Enum.map(fn {k,v} -> {String.to_atom(k), v} end) |> Enum.into(%{})
     album
     |> changeset(attrs)
-    |> put_change(:links, attrs.links)
+    |> put_change(:links, links)
   end
 
   def links_changeset(struct, attrs) do
