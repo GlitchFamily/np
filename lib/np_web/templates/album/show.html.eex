@@ -12,9 +12,12 @@
             <li class="album-tags__item"><%= tag.name %></li>
           <% end %>
         </ul>
+
         <div class="album-links">
-          <%= if has_links?(@album) do %>
+          <%= if no_links?(@album) do %>
             Listen on&nbsp;:
+                There are no links (for now~)
+          <%= else %>
             <div class="album-links__list">
               <%= if @album.links.spotify do %>
                 <a class="album-links__item tooltip tooltip--bottom" aria-label="Spotify" data-tooltip="Spotify" href="<%= Map.get(@album.links, :spotify) %>" target="_blank" rel="noreferrer">
@@ -47,8 +50,6 @@
                 </a>
               <% end %>
             </div>
-          <% else %>
-            There is no link for now
           <% end %>
       </div>
   </div>

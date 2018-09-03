@@ -67,7 +67,7 @@ defmodule Np.Resources.Album do
 
   @spec parse_tags([String.t]|String.t) :: [String.t]
   def parse_tags(tags) when is_list(tags),   do: tags |> Enum.map(&get_or_insert_tag(&1))
-  def parse_tags(tags) when is_binary(tags), do: tags |> String.split(",") |> Enum.map(&String.strip(&1)) |> parse_tags
+  def parse_tags(tags) when is_binary(tags), do: tags |> String.split(",") |> Enum.map(&String.trim(&1)) |> parse_tags
 
 
   def get_or_insert_tag(name), do: Repo.get_by(Tag, name: name) || Repo.insert!(%Tag{name: name})
