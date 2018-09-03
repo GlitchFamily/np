@@ -2,35 +2,36 @@
   <div class="container">
     <div class="album-layout">
       <div class="album-cover">
-        <img class="album-cover__visual" src="/images/covers/aokigahara.jpg" alt="Album Cover">
+        <img class="album-cover__visual" src="<%= Routes.static_path(@conn, @album.cover)%>" alt="Album Cover">
       </div>
       <div class="album-infos">
-        <h1 class="album-name">Aokigahara</h1>
-        <strong class="album-artist">by Harakiri for the Sky</strong>
+        <h1 class="album-name"><%= @album.artist %></h1>
+        <strong class="album-artist">by <%= @album.name %></strong>
         <ul class="album-tags">
-          <li class="album-tags__item">Black metal</li>
-          <li class="album-tags__item">Post-Hardcore</li>
+          <%= for tag <- @album.tags do %>
+            <li class="album-tags__item"><%= tag.name %></li>
+          <% end %>
         </ul>
         <div class="album-links">
           Listen on&nbsp;:
           <div class="album-links__list">
             <!-- Doesn't work :( -->
-            <a class="album-links__item tooltip tooltip--bottom" aria-label="Spotify" data-tooltip="Spotify" href="" target="_blank" rel="noreferrer">
+            <a class="album-links__item tooltip tooltip--bottom" aria-label="Spotify" data-tooltip="Spotify" href=<%= Map.get(@album.links, :spotify, "") %> target="_blank" rel="noreferrer">
               <%= render_existing NpWeb.PageView, "social/spotify.html", assigns %>
             </a>
-            <a class="album-links__item tooltip tooltip--bottom" aria-label="Youtube" data-tooltip="Youtube" href="" target="_blank" rel="noreferrer">
+            <a class="album-links__item tooltip tooltip--bottom" aria-label="Youtube" data-tooltip="Youtube" href=<%= Map.get(@album.links, :youtube, "") %> target="_blank" rel="noreferrer">
               <%= render_existing NpWeb.PageView, "social/youtube.html", assigns %>
             </a>
-            <a class="album-links__item tooltip tooltip--bottom" aria-label="Apple Music" data-tooltip="Apple Music" href="" target="_blank" rel="noreferrer">
+            <a class="album-links__item tooltip tooltip--bottom" aria-label="Apple Music" data-tooltip="Apple Music" href=<%= Map.get(@album.links, :applemusic, "") %> target="_blank" rel="noreferrer">
               <%= render_existing NpWeb.PageView, "social/apple-music.html", assigns %>
             </a>
-            <a class="album-links__item tooltip tooltip--bottom" aria-label="Soundcloud" data-tooltip="Soundcloud" href="" target="_blank" rel="noreferrer">
+            <a class="album-links__item tooltip tooltip--bottom" aria-label="Soundcloud" data-tooltip="Soundcloud" href=<%= Map.get(@album.links, :soundcloud, "") %> target="_blank" rel="noreferrer">
               <%= render_existing NpWeb.PageView, "social/soundcloud.html", assigns %>
             </a>
-            <a class="album-links__item tooltip tooltip--bottom" aria-label="Bandcamp" data-tooltip="Bandcamp" href="" target="_blank" rel="noreferrer">
+            <a class="album-links__item tooltip tooltip--bottom" aria-label="Bandcamp" data-tooltip="Bandcamp" href=<%= Map.get(@album.links, :bandcamp, "") %> target="_blank" rel="noreferrer">
               <%= render_existing NpWeb.PageView, "social/bandcamp.html", assigns %>
             </a>
-            <a class="album-links__item tooltip tooltip--bottom" aria-label="Google Play" data-tooltip="Google Play" href="" target="_blank" rel="noreferrer">
+            <a class="album-links__item tooltip tooltip--bottom" aria-label="Google Play" data-tooltip="Google Play" href=<%= Map.get(@album.links, :googleplay, "") %> target="_blank" rel="noreferrer">
               <%= render_existing NpWeb.PageView, "social/google-play.html", assigns %>
             </a>
           </div>

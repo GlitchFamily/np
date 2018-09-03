@@ -8,8 +8,8 @@ defmodule Np.Resources do
 
   import Ecto.Query, warn: false
   alias Np.Repo
-
   alias Np.Resources.Album
+  alias Np.Resources.Album.Links
 
   @doc """
   Returns the list of albums.
@@ -38,7 +38,10 @@ defmodule Np.Resources do
       ** (Ecto.NoResultsError)
 
   """
-  def get_album!(hash), do: Repo.get_by(Album, hash: hash)
+  def get_album!(hash) do 
+    Repo.get_by(Album, hash: hash)
+    |> Repo.preload(:tags)
+  end
 
   def get_albums() do
     Repo.all from a in Album, preload: [:tags]
@@ -57,8 +60,11 @@ defmodule Np.Resources do
 
   """
   def create_album(attrs \\ %{}) do
+    attrs = attrs
+            |> Map.put(:hash, mkhash())
+
     %Album{}
-    |> Album.changeset(Map.put(attrs, :hash, mkhash()))
+    |> Album.register_changeset(attrs)
     |> Repo.insert()
   end
 
