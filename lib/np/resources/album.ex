@@ -35,7 +35,7 @@ defmodule Np.Resources.Album do
 
     album
     |> cast(attrs, [:name, :cover, :artist, :hash])
-    |> cast_embed(:links)
+    |> cast_embed(:links, with: &links_changeset/2)
     |> validate_required([:name, :cover, :artist, :hash])
     |> put_slug
     |> put_assoc(:tags, tags) 
@@ -45,6 +45,11 @@ defmodule Np.Resources.Album do
     album
     |> changeset(attrs)
     |> put_change(:links, attrs.links)
+  end
+
+  def links_changeset(struct, attrs) do
+    struct
+    |> cast(attrs, [:amazonmusic, :applemusic, :bandcamp, :deezer, :googleplay, :soundcloud, :spotify, :youtube])
   end
 
   def put_slug(changeset) do
