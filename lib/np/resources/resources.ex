@@ -24,6 +24,11 @@ defmodule Np.Resources do
     Repo.all(Album)
   end
 
+  def list_albums(limit: limit, offset: offset) do
+    Album
+    |> Repo.paginate(page: offset, page_size: limit)
+  end
+
   @doc """
   Gets a single album.
 

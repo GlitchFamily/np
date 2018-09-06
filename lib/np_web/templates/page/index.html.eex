@@ -23,10 +23,23 @@
 
 <div class="pagination">
   <div class="container">
-    <a class="btn btn--primary btn--big w100" href="">Load moaaaar</a>
+    <%= if last_page?(@page) do %>
+      <a class="btn btn--primary btn--big w100 disabled" href="">Load moaaaar</a>
+    <% else %>
+      <a class="btn btn--primary btn--big w100" href="<%= Routes.page_path(@conn, :page, @page.page_number+1) %>">Load moaaaar</a>
+    <% end %>
     <div class="pagination__side">
-      <span class="btn btn--secondary w100 disabled" href="">Prev</span>
-      <a class="btn btn--secondary w100" href="">Next</a>
+      <%= if first_page?(@page) do %>
+        <span class="btn btn--secondary w100 disabled" href="">Prev</span>
+      <% else %>
+        <a class="btn btn--secondary w100" href="<%= Routes.page_path(@conn, :page, @page.page_number - 1)%>">Prev</a>
+      <% end %>
+
+      <%= if last_page?(@page) do %>
+        <a class="btn btn--secondary w100 disabled" href="">Next</a>
+      <% else %>
+        <a class="btn btn--secondary w100" href="<%= Routes.page_path(@conn, :page, @page.page_number+1) %>">Next</a>
+      <% end %>
     </div>
   </div>
 </div>
