@@ -21,3 +21,69 @@
     googleplay: "https://play.google.com/music/m/Bnqdhtet6wepzq4p5hhfurxq5b4?signup_if_needed=1"
     deezer: "https://www.deezer.com/album/8502753"
     amazonmusic: "https://www.amazon.com/Aokigahara-Harakiri-Sky/dp/B014AO5SO4?SubscriptionId=AKIAJ2ZJBLTVW2RH7GAQ&tag=mobilead05388-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B014AO5SO4"
+
+- name: "Kinetik"
+  artist: "Phutureprimitive"
+  tags: "Electronica, Dubstep, Drum'n'Bass"
+  cover: "/images/covers/kinetik.jpg"
+  links:
+    youtube: "https://youtu.be/zAjgOME9uJ8"
+    applemusic: "https://itunes.apple.com/us/album/kinetik/426188746?uo=4"
+    spotify: "https://play.spotify.com/album/3KWMHvauWZS4wPwN07SKlK"
+    googleplay: "https://play.google.com/music/m/B4gksx5f5xf77f5ldknikndyzrm?signup_if_needed=1"
+    deezer: "https://www.deezer.com/album/1394946"
+    amazonmusic: "https://www.amazon.com/Kinetik-Phutureprimitive/dp/B004S5OTM8?SubscriptionId=AKIAJ2ZJBLTVW2RH7GAQ&tag=mobilead05388-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B004S5OTM8"
+
+
+- name: "Dirty Computer"
+  artist: "Janelle Monáe"
+  tags: "RnB, Pop, Soul"
+  cover: "/images/covers/dirty-computer.jpg"
+  links:
+    youtube: "https://music.youtube.com/watch?v=jdH2Sy-BlNE"
+    applemusic: "https://itunes.apple.com/us/album/dirty-computer/1350021308?uo=4"
+    spotify: "https://play.spotify.com/album/2PjlaxlMunGOUvcRzlTbtE"
+    googleplay: "https://play.google.com/music/m/Bdesgxlys2k22uiblmpoimifkqi?signup_if_needed=1"
+    deezer: "https://www.deezer.com/album/62321892"
+    amazonmusic: "https://www.amazon.com/Dirty-Computer-Explicit-Janelle-Mon%C3%A1e/dp/B079Y41LV6?SubscriptionId=AKIAJ2ZJBLTVW2RH7GAQ&tag=mobilead05388-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B079Y41LV6"
+
+- name: "Audio, Video, Disco"
+  artist: "Justice"
+  tags: "Electronic"
+  cover: "/images/covers/audio-video-disco.jpg"
+  links:
+    youtube: "https://youtu.be/KO42fQP5sm4"
+    applemusic: "https://itunes.apple.com/us/album/audio-video-disco/469202499?uo=4"
+    spotify: "https://play.spotify.com/album/0dLnnm4PjeyqM4CoHqo6DI"
+    googleplay: "https://play.google.com/music/m/Bm6wmpfcgtjnlz7xmjtjvmkmucy?signup_if_needed=1"
+    deezer: "https://www.deezer.com/album/54275582"
+    amazonmusic: "https://www.amazon.com/Audio-Video-Disco-WWW/dp/B07DWDWZW3?SubscriptionId=AKIAJ2ZJBLTVW2RH7GAQ&tag=mobilead05388-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B07DWDWZW3"
+
+- name: "Something of Time"
+  artist: "Nightnoise"
+  tags: "Irish, Folk, Celtic, Jazz"
+  cover: "/images/covers/something-of-time.jpg"
+  links:
+    spotify: "https://play.spotify.com/album/0knonYDOyBYZdKuJ4r5mqJ"
+    applemusic: "https://itunes.apple.com/us/album/something-of-time/298432472?uo=4"
+    googleplay: "https://play.google.com/music/m/Bafcsrnrcwfrbtiu7lgndxk4j4m?signup_if_needed=1"
+    amazonmusic: "https://www.amazon.com/Something-Of-Time/dp/B004LBKEBE?SubscriptionId=AKIAJ2ZJBLTVW2RH7GAQ&tag=mobilead05388-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B004LBKEBE"
+    youtube: "https://music.youtube.com/watch?v=rBqcd9J3jes"
+    deezer: "https://www.deezer.com/album/121438"
+
+- name: "Rakkaus päällemme sataa"
+  artist: "Suvi Teräsniska" 
+  tags: "Suomi, Pop"
+  cover: "/images/covers/rakkaus-päällemme-sataa.jpg"
+  links:
+    spotify: "https://play.spotify.com/album/3MAUTcAgBTRQFQROJsd0Py"
+    youtube: "https://music.youtube.com/watch?v=W3X8Wcu9PXw"
+    applemusic: "https://itunes.apple.com/us/album/rakkaus-p%C3%A4%C3%A4llemme-sataa-platinapainos/420278668?uo=4"
+    googleplay: "https://play.google.com/music/m/Brjv5syfhn2xh4nvyhp2cr5p3hy?signup_if_needed=1"
+
+- name: "Interrupt Request"
+  artist: "Master Boot Record"
+  tags: "Electronic"
+  cover: "/images/covers/interrupt-request.jpg"
+  links:
+    youtube: "https://youtu.be/rvYqjBYuq-4"

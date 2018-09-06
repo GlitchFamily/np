@@ -17,6 +17,7 @@ defmodule NpWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/page/:number", PageController, :page
     get "/album/:hash", AlbumController, :show
     get "/album/:hash/:slug", AlbumController, :show
   end
