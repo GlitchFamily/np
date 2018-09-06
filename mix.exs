@@ -33,6 +33,8 @@ defmodule Np.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:argon2_elixir, "~> 1.3.1"},
+      {:comeonin, "~> 4.1.1"},
       {:cowboy, "~> 1.0"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},

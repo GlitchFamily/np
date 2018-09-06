@@ -7,6 +7,7 @@ defmodule NpWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug NpWeb.Auth
   end
 
   pipeline :api do
@@ -20,6 +21,9 @@ defmodule NpWeb.Router do
     get "/page/:number", PageController, :page
     get "/album/:hash", AlbumController, :show
     get "/album/:hash/:slug", AlbumController, :show
+
+    resources "/login", SessionController, only: [:new, :create, :delete]
+
   end
 
   scope "/admin", NpWeb do
