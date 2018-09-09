@@ -16,33 +16,33 @@
         <div class="catalog-item__artist">by <%= album.artist%></div>
         <img class="catalog-item__visual" src=<%= album.cover %> alt="">
       </a>
-      <% end %> 
-    </div>
-  </div>
-</div>
-
-<div class="pagination">
-  <div class="container">
-    <%= if last_page?(@page) do %>
-      <a class="btn btn--primary btn--big w100 disabled" href="">Load moaaaar</a>
-    <% else %>
-      <a class="btn btn--primary btn--big w100" href="<%= Routes.page_path(@conn, :page, @page.page_number+1) %>">Load moaaaar</a>
-    <% end %>
-    <div class="pagination__side">
-      <%= if first_page?(@page) do %>
-        <span class="btn btn--secondary w100 disabled" href="">Prev</span>
-      <% else %>
-        <a class="btn btn--secondary w100" href="<%= Routes.page_path(@conn, :page, @page.page_number - 1)%>">Prev</a>
-      <% end %>
-
-      <%= if last_page?(@page) do %>
-        <a class="btn btn--secondary w100 disabled" href="">Next</a>
-      <% else %>
-        <a class="btn btn--secondary w100" href="<%= Routes.page_path(@conn, :page, @page.page_number+1) %>">Next</a>
       <% end %>
     </div>
   </div>
 </div>
+
+<%= if @page.total_pages > 1 do %>
+  <div class="pagination">
+    <div class="container">
+      <%= unless last_page?(@page) do %>
+        <a class="btn btn--primary btn--big w100" href="<%= Routes.page_path(@conn, :page, @page.page_number+1) %>">Load moaaaar</a>
+      <% end %>
+      <div class="pagination__side">
+        <%= if first_page?(@page) do %>
+          <span class="btn btn--secondary w100 disabled">Prev</span>
+        <% else %>
+          <a class="btn btn--secondary w100" href="<%= Routes.page_path(@conn, :page, @page.page_number - 1)%>">Prev</a>
+        <% end %>
+
+        <%= if last_page?(@page) do %>
+          <span class="btn btn--secondary w100 disabled">Next</span>
+        <% else %>
+          <a class="btn btn--secondary w100" href="<%= Routes.page_path(@conn, :page, @page.page_number+1) %>">Next</a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <section class="home-about">
   <div class="container">
