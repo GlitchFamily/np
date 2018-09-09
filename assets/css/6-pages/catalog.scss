@@ -2,6 +2,33 @@
 /* == Catalog page */
 /* ----------------------------------------------------------- */
 
+/* Head
+-------------------------------------------------------------- */
+
+.catalog-head {
+  padding-top: 8rem;
+  padding-bottom: 6.5rem;
+  background-color: $color-bg-head;
+}
+
+.catalog-head__title {
+  margin: 0;
+  font-size: 10rem;
+}
+
+.catalog-head__title--primary {
+  margin-right: 3rem;
+}
+
+.catalog-head__title--secondary {
+  color: rgba($color-light-text, .6);
+  vertical-align: baseline;
+  font-size: 3.6rem;
+}
+
+/* List
+-------------------------------------------------------------- */
+
 .catalog-item,
 .catalog-item:link,
 .catalog-item:visited {

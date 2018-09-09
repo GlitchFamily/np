@@ -44,6 +44,23 @@
   /* Catalog
   -------------------------------------------------------------- */
 
+  .catalog-head {
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  .catalog-head__title {
+    font-size: 4.5rem;
+  }
+
+  .catalog-head__title--primary {
+    margin-right: 1rem;
+  }
+
+  .catalog-head__title--secondary {
+    font-size: 2.3rem;
+  }
+
   .catalog-item__album {
     font-size: 1.7rem;
   }
