@@ -8,7 +8,11 @@ defmodule NpWeb.PageController do
 
   def index(conn, _params) do
     page = Np.Resources.list_albums(limit: 6, offset: 1)
-    render conn, "index.html", albums: page.entries, page: page
+    if page.total_pages < 2 do
+      render conn, "frontpage.html", albums: page.entries
+    else
+      render conn, "index.html", albums: page.entries, page: page
+    end
   end
 
   def album(conn, _params) do
