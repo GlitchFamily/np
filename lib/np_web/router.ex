@@ -23,11 +23,12 @@ defmodule NpWeb.Router do
     get "/album/:hash/:slug", AlbumController, :show
 
     resources "/login", SessionController, only: [:new, :create, :delete]
-
   end
 
   scope "/admin", NpWeb do
     pipe_through :browser
+
+    resources "/album", AdminController, only: [:new, :create, :delete, :edit]
   end
 
   # Other scopes may use custom stacks.
