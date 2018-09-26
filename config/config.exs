@@ -11,6 +11,7 @@ config :np,
 
 # Configures the endpoint
 config :np, NpWeb.Endpoint,
+  adapter: Phoenix.Endpoint.Cowboy2Adapter,
   url: [host: "localhost"],
   secret_key_base: "kpUrqW48PgOnUYisXwes49+DWI8pP8Zxq0vkZmPdBjfMAapBhjms4tJsqTW+MvjG",
   render_errors: [view: NpWeb.ErrorView, accepts: ~w(html json)],

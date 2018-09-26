@@ -11,4 +11,11 @@ defmodule NpWeb.AlbumView do
     |> Enum.all?(&is_nil(&1))
     |> IO.inspect
   end
+
+  def links() do
+    %Np.Resources.Album.Links{}
+    |> Map.from_struct
+    |> Map.keys
+    |> Enum.reject(fn k -> k == :id end)
+  end
 end

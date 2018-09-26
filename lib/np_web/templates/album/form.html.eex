@@ -17,6 +17,12 @@
   <%= text_input f, :artist %>
   <%= error_tag f, :artist %>
 
+  <%= for link <- links() do %>
+    <%= label f, "#{link} link" %>
+    <%= text_input f, String.to_atom("link_#{link}")%>
+    <% error_tag f, String.to_atom("link_#{link}")%>
+  <% end %>
+
   <div>
     <%= submit "Save" %>
   </div>

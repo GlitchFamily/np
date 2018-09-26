@@ -18,7 +18,10 @@ defmodule NpWeb.Router do
 
     get "/", PageController, :index
     get "/page/:number", PageController, :page
-    get "/album/:hash", AlbumController, :show
+    get "/album/index",       AlbumController, :index
+    get "/album/new",         AlbumController, :new
+    post "/album/new",        AlbumController, :create
+    get "/album/:hash",       AlbumController, :show
     get "/album/:hash/:slug", AlbumController, :show
   end
 

@@ -32,21 +32,21 @@ defmodule Np.Resources.Album do
 
   @doc false
   def changeset(album, attrs) do
-    tags = parse_tags(attrs.tags)
-
     album
     |> cast(attrs, [:name, :cover, :artist, :hash])
     |> cast_embed(:links, with: &links_changeset/2)
     |> validate_required([:name, :cover, :artist, :hash])
-    |> put_slug
-    |> put_assoc(:tags, tags) 
   end
 
   def register_changeset(%__MODULE__{}=album, attrs \\ %{}) do
+    tags = parse_tags(attrs.tags)
     links = attrs.links |> Enum.map(fn {k,v} -> {String.to_atom(k), v} end) |> Enum.into(%{})
+
     album
     |> changeset(attrs)
     |> put_change(:links, links)
+    |> put_slug
+    |> put_assoc(:tags, tags) 
   end
 
   def links_changeset(struct, attrs) do
