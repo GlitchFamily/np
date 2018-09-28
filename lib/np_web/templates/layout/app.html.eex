@@ -20,7 +20,7 @@
           <div class="header__tagline">Great music should be shared</div>
         </div>
         <nav class="navigation">
-          <a class="navigation__item navigation__item--admin" href="">+ Add</a>
+          <a class="navigation__item navigation__item--admin" href="<%= Routes.album_path(@conn, :new) %>">+ Add</a>
           <a class="navigation__item active hidden-xs" href="">Latest</a>
           <a class="navigation__item" href="">Random</a>
           <a class="navigation__item" href="">Logout</a>
