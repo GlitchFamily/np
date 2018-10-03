@@ -38,7 +38,7 @@ defmodule Np.MixProject do
       {:jason, "~> 1.0"},
       {:phoenix, github: "phoenixframework/phoenix", override: true},
       {:plug, git: "https://github.com/elixir-plug/plug", branch: "master", override: true},
-      {:phoenix_ecto, "~> 3.2"},
+      {:phoenix_ecto, "~> 3.4"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
