@@ -1,6 +1,7 @@
 defmodule NpWeb.AlbumController do
   use NpWeb, :controller
 
+  alias Np.Repo
   alias Np.Resources
   alias Np.Resources.Album
 
@@ -9,7 +10,7 @@ defmodule NpWeb.AlbumController do
   end
 
   def new(conn, _params) do
-    changeset = Resources.change_album(%Album{})
+    changeset = %Album{} |> Repo.preload(:tags) |> Resources.change_album()
     render(conn, "new.html", changeset: changeset)
   end
 

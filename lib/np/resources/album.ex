@@ -1,12 +1,13 @@
 defmodule Np.Resources.Album do
   use Ecto.Schema
+  use Arc.Ecto.Schema
   import Ecto.Changeset
   alias Np.Repo
   alias Np.Resources.Tag
 
   schema "albums" do
     field :artist, :string
-    field :cover, :string
+    field :cover, Np.ImageUploader.Type
     field :name, :string
     field :hash, :string
     field :slug, :string
