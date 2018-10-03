@@ -19,6 +19,10 @@ body {
   max-width: 138rem;
 }
 
+.container--small {
+  max-width: 60rem;
+}
+
 ::selection {
   background-color: rgba($color-secondary, .8);
   color: $color-light-text;

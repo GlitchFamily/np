@@ -5,25 +5,36 @@
     </div>
   <% end %>
 
-  <%= label f, :name %>
-  <%= text_input f, :name %>
-  <%= error_tag f, :name %>
+  <div class="f-group">
+    <%= label f, :name %>
+    <%= text_input f, :name, [class: "f-size-full w100"] %>
+    <%= error_tag f, :name %>
+  </div>
 
-  <%= label f, :cover %>
-  <%= text_input f, :cover %>
-  <%= error_tag f, :cover %>
+  <div class="f-group">
+    <%= label f, :cover %>
+    <%= text_input f, :cover, [class: "f-size-full w100"] %>
+    <%= error_tag f, :cover %>
+  </div>
 
-  <%= label f, :artist %>
-  <%= text_input f, :artist %>
-  <%= error_tag f, :artist %>
+  <div class="f-group">
+    <%= label f, :artist %>
+    <%= text_input f, :artist, [class: "f-size-full w100"] %>
+    <%= error_tag f, :artist %>
+  </div>
 
-  <%= for link <- links() do %>
-    <%= label f, "#{link} link" %>
-    <%= text_input f, String.to_atom("link_#{link}")%>
-    <% error_tag f, String.to_atom("link_#{link}")%>
-  <% end %>
+  <fieldset>
+    <legend>Links</legend>
+    <%= for link <- links() do %>
+      <div class="f-group">
+        <%= label f, "#{link} link" %>
+        <%= text_input f, String.to_atom("link_#{link}"), [class: "f-size-full w100"] %>
+        <% error_tag f, String.to_atom("link_#{link}")%>
+      </div>
+    <% end %>
+  </fieldset>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Save", [class: "btn btn--primary w100"] %>
   </div>
 <% end %>
