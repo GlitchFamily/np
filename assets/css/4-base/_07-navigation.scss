@@ -53,3 +53,11 @@
   border: .1rem solid rgba(#fff, .8);
   border-radius: .3rem;
 }
+
+/* Mobile Menu
+-------------------------------------------------------------- */
+
+.navigation__mobileBtn,
+.navigation__mobileOverlay {
+  display: none;
+}
