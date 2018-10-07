@@ -4,7 +4,7 @@
     <a class="catalog-item__content" href="<%= Routes.album_path @conn, :show, album.hash, album.slug%>">
       <h2 class="catalog-item__album"><%= album.name%></h2>
       <div class="catalog-item__artist">by <%= album.artist%></div>
-      <img class="catalog-item__visual" src="<%= album.cover %>" alt="">
+      <img class="catalog-item__visual" src="<%= "/images/covers/" <> album.cover.file_name %>" alt="">
     </a>
     <a class="catalog-item__manage" href="">Manage</a>
   </div>

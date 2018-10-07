@@ -26,15 +26,20 @@ defmodule Np.ImageUploader do
   #   {:convert, "-strip -thumbnail 250x250^ -gravity center -extent 250x250 -format png", :png}
   # end
 
+
+  def filename(version, {file, scope}) do
+    file_name = Path.basename(file.file_name, Path.extname(file.file_name))
+    "#{file_name}"
+  end
   # Override the persisted filenames:
   # def filename(version, _) do
   #   version
   # end
 
   # Override the storage directory:
-  def storage_dir(version, {file, scope}) do
-    "images/#{scope.id}"
-  end
+  # def storage_dir(version, {file, scope}) do
+  #   "images/#{scope.id}"
+  # end
 
   # Provide a default URL if there hasn't been a file uploaded
   # def default_url(version, scope) do

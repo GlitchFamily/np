@@ -9,6 +9,7 @@ defmodule NpWeb.Endpoint do
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
+
   plug Plug.Static,
     at: "/", from: :np, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
@@ -39,6 +40,8 @@ defmodule NpWeb.Endpoint do
     store: :cookie,
     key: "_np_key",
     signing_salt: "Q6rHLRMP"
+
+  # plug Plug.Static, at: "/uploads", from: "uploads"
 
   plug NpWeb.Router
 end

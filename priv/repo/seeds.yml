@@ -1,19 +1,19 @@
 - name: "Corpo-Mente"
   artist: "Corpo-Mente"
   tags: "Baroque, Folk, Metal"
-  cover: "/images/covers/corpo-mente.jpg"
+  cover: "assets/static/images/covers/corpo-mente.jpg"
   links: {}
 
 - name: "Who Bit The Moon"
   artist: "David Maxim Micic"
   tags: "Progressive Rock"
-  cover: "/images/covers/who-bit-the-moon.jpg"
+  cover: "assets/static/images/covers/who-bit-the-moon.jpg"
   links: {}
 
 - name: "Aokigahara"
   artist: "Harariki For The Sky"
   tags: "Black Metal, Post-Hardcore"
-  cover: "/images/covers/aokigahara.jpg"
+  cover: "assets/static/images/covers/aokigahara.jpg"
   links:
     youtube: "https://youtu.be/dZa6AzFg084"
     spotify: "https://play.spotify.com/album/63QDHFL9Vt158vy6gN4Old"
@@ -25,7 +25,7 @@
 - name: "Kinetik"
   artist: "Phutureprimitive"
   tags: "Electronica, Dubstep, Drum'n'Bass"
-  cover: "/images/covers/kinetik.jpg"
+  cover: "assets/static/images/covers/kinetik.jpg"
   links:
     youtube: "https://youtu.be/zAjgOME9uJ8"
     applemusic: "https://itunes.apple.com/us/album/kinetik/426188746?uo=4"
@@ -38,7 +38,7 @@
 - name: "Dirty Computer"
   artist: "Janelle Monáe"
   tags: "RnB, Pop, Soul"
-  cover: "/images/covers/dirty-computer.jpg"
+  cover: "assets/static/images/covers/dirty-computer.jpg"
   links:
     youtube: "https://music.youtube.com/watch?v=jdH2Sy-BlNE"
     applemusic: "https://itunes.apple.com/us/album/dirty-computer/1350021308?uo=4"
@@ -50,7 +50,7 @@
 - name: "Audio, Video, Disco"
   artist: "Justice"
   tags: "Electronic"
-  cover: "/images/covers/audio-video-disco.jpg"
+  cover: "assets/static/images/covers/audio-video-disco.jpg"
   links:
     youtube: "https://youtu.be/KO42fQP5sm4"
     applemusic: "https://itunes.apple.com/us/album/audio-video-disco/469202499?uo=4"
@@ -62,7 +62,7 @@
 - name: "Something of Time"
   artist: "Nightnoise"
   tags: "Irish, Folk, Celtic, Jazz"
-  cover: "/images/covers/something-of-time.jpg"
+  cover: "assets/static/images/covers/something-of-time.jpg"
   links:
     spotify: "https://play.spotify.com/album/0knonYDOyBYZdKuJ4r5mqJ"
     applemusic: "https://itunes.apple.com/us/album/something-of-time/298432472?uo=4"
@@ -74,7 +74,7 @@
 - name: "Rakkaus päällemme sataa"
   artist: "Suvi Teräsniska" 
   tags: "Suomi, Pop"
-  cover: "/images/covers/rakkaus-päällemme-sataa.jpg"
+  cover: "assets/static/images/covers/rakkaus-päällemme-sataa.jpg"
   links:
     spotify: "https://play.spotify.com/album/3MAUTcAgBTRQFQROJsd0Py"
     youtube: "https://music.youtube.com/watch?v=W3X8Wcu9PXw"
@@ -84,6 +84,6 @@
 - name: "Interrupt Request"
   artist: "Master Boot Record"
   tags: "Electronic"
-  cover: "/images/covers/interrupt-request.jpg"
+  cover: "assets/static/images/covers/interrupt-request.jpg"
   links:
     youtube: "https://youtu.be/rvYqjBYuq-4"

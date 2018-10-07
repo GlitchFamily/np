@@ -41,7 +41,7 @@ defmodule Np.Resources.Album do
 
   def register_changeset(%__MODULE__{}=album, attrs \\ %{}) do
     tags = parse_tags(attrs.tags)
-    links = attrs.links |> Enum.map(fn {k,v} -> {String.to_atom(k), v} end) |> Enum.into(%{})
+    links = attrs.links 
 
     album
     |> changeset(attrs)
