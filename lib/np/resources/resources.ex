@@ -7,10 +7,10 @@ defmodule Np.Resources do
   """
 
   import Ecto.Query, warn: false
-  import Np.Utils, only: [atomify_map_keys: 1, mkhash: 0, group_links: 1]
+  import Np.Utils
   alias Np.Repo
   alias Np.Resources.Album
-  alias Np.Resources.Album.Links
+  # alias Np.Resources.Album.Links
 
   @doc """
   Returns the list of albums.
@@ -67,16 +67,15 @@ defmodule Np.Resources do
   """
   def create_album(attrs \\ %{}) do
     attrs = attrs
-            |> IO.inspect
             |> group_links
             |> atomify_map_keys()
+            |> handle_cover
             |> Map.put(:hash, mkhash())
 
     %Album{}
     |> Album.register_changeset(attrs)
     |> Repo.insert()
   end
-
 
   @doc """
   Updates a album.

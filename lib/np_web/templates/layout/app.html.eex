@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Now Playing ∴ Handpicked Albums by the Glitch Family</title>
-    <link rel="stylesheet" href="<%= Routes.static_url(@conn, "/css/app.css") %>"/>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
     <% if @conn.private.phoenix_controller == NpWeb.PageController && @conn.private.phoenix_action == :index do %>

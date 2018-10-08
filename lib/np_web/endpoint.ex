@@ -41,7 +41,5 @@ defmodule NpWeb.Endpoint do
     key: "_np_key",
     signing_salt: "Q6rHLRMP"
 
-  # plug Plug.Static, at: "/uploads", from: "uploads"
-
   plug NpWeb.Router
 end

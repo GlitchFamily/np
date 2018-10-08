@@ -19,7 +19,7 @@ defmodule NpWeb.AlbumController do
       {:ok, album} ->
         conn
         |> put_flash(:info, "Album created successfully.")
-        |> redirect(to: Routes.album_path(conn, :show, album))
+        |> redirect(to: Routes.album_path(conn, :show, album.hash, album.slug))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

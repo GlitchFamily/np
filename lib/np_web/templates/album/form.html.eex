@@ -13,7 +13,7 @@
 
   <div class="f-group">
     <%= label f, :cover %>
-    <%= file_input f, :cover, [class: "f-size-full w100"] %>
+    <%= file_input f, :cover, [class: "f-size-full w100 form-control"] %>
     <%= error_tag f, :cover %>
   </div>
 

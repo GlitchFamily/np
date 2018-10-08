@@ -7,7 +7,7 @@ defmodule Np.Resources.Album do
 
   schema "albums" do
     field :artist, :string
-    field :cover, Np.ImageUploader.Type
+    field :cover, :string
     field :name, :string
     field :hash, :string
     field :slug, :string
@@ -46,8 +46,8 @@ defmodule Np.Resources.Album do
     album
     |> changeset(attrs)
     |> put_change(:links, links)
-    |> put_slug
     |> put_assoc(:tags, tags) 
+    |> put_slug
   end
 
   def links_changeset(struct, attrs) do
