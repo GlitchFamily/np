@@ -17,3 +17,5 @@ import "phoenix_html"
 // import socket from "./socket"
 
 import "./menu.js"
+
+import "./delete-confirm.js"

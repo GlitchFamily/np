@@ -1,5 +1,9 @@
-<h1>Edit Album</h1>
+<div class="content">
+  <div class="container container--small w100">
+    <h1 class="content-title txtcenter">Edit Album</h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.album_path(@conn, :update, @album)) %>
+    <%= render "form.html", Map.put(assigns, :action, Routes.album_path(@conn, :update, @album)) %>
 
-<span><%= link "Back", to: Routes.album_path(@conn, :index) %></span>
+    <div class="txtcenter mt2"><button class="btn--link" data-delete-link="/" data-delete-link-message="Are you sure you want to delete this album?">Delete album</button></div>
+  </div>
+</div>
