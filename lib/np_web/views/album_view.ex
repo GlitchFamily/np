@@ -7,9 +7,7 @@ defmodule NpWeb.AlbumView do
     |> Map.from_struct
     |> Map.delete(:id)
     |> Map.values
-    |> IO.inspect
     |> Enum.all?(&is_nil(&1))
-    |> IO.inspect
   end
 
   def links() do

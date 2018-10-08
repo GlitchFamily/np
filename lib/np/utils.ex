@@ -3,7 +3,12 @@ defmodule Np.Utils do
   require Logger
 
   def group_links(map) do
-    links = Enum.filter(map, fn {k,_} -> String.starts_with?(k, "link_") end) |> Enum.into(%{}) |> atomify_map_keys
+    IO.inspect map
+    links = map
+            |> Enum.filter(fn {k,_} -> String.starts_with?(k, "link_") end) 
+            |> Enum.map(fn {k,v} -> "link_" <> newk = k ; {newk,v} end)
+            |> Enum.into(%{})
+            |> atomify_map_keys
     nonlinks = Enum.reject(map, fn {k,_} -> String.starts_with?(k, "link_") end) |> Enum.into(%{}) |> atomify_map_keys
     Map.put(nonlinks, :links, links)
   end
@@ -15,7 +20,7 @@ defmodule Np.Utils do
   end
 
   defp transform(key) when is_binary(key), do: String.to_atom(key)
-  defp transform(key),                       do: key
+  defp transform(key),                     do: key
 
   def mkhash() do
     UUID.uuid1
