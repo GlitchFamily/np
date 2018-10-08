@@ -33,8 +33,6 @@ defmodule Np.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:arc, "~> 0.10.0"},
-      {:arc_ecto, "~> 0.10.0"},
       {:cowboy, "~> 2.4"},
       {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
       {:gettext, "~> 0.11"},
