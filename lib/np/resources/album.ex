@@ -1,6 +1,5 @@
 defmodule Np.Resources.Album do
   use Ecto.Schema
-  use Arc.Ecto.Schema
   import Ecto.Changeset
   alias Np.Repo
   alias Np.Resources.Tag

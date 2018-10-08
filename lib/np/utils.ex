@@ -3,7 +3,6 @@ defmodule Np.Utils do
   require Logger
 
   def group_links(map) do
-    IO.inspect map
     links = map
             |> Enum.filter(fn {k,_} -> String.starts_with?(k, "link_") end) 
             |> Enum.map(fn {k,v} -> "link_" <> newk = k ; {newk,v} end)
@@ -29,7 +28,6 @@ defmodule Np.Utils do
   end
 
   def handle_cover(attrs) when is_map(attrs) do
-    IO.inspect(attrs.cover, label: "Cover")
     cond do
       is_map(attrs.cover) ->
         cover     = attrs.cover

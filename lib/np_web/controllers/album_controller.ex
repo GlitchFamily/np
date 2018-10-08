@@ -6,7 +6,7 @@ defmodule NpWeb.AlbumController do
   alias Np.Resources.Album
 
   def index(conn, _params) do
-    redirect(conn, "/")
+    redirect(conn, to: "/")
   end
 
   def new(conn, _params) do
