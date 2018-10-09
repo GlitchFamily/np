@@ -6,7 +6,7 @@
       <div class="catalog-item__artist">by <%= album.artist%></div>
       <img class="catalog-item__visual" src="<%= Routes.static_path(@conn, album.cover)%>" alt="">
     </a>
-    <a class="catalog-item__manage" href="">Manage</a>
+    <a class="catalog-item__manage" href=" <%= Routes.album_path @conn, :edit, album.hash, album.slug%>">Manage</a>
   </div>
   <% end %>
 </div>
