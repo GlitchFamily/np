@@ -25,19 +25,19 @@ defmodule NpWeb.AlbumController do
     end
   end
 
-  def show(conn, %{"hash" => hash}) do
+  def show(conn, %{"hash" => hash}=params) do
     album = Resources.get_album!(hash)
     render(conn, "show.html", album: album)
   end
 
-  def edit(conn, %{"id" => id}) do
-    album = Resources.get_album!(id)
-    changeset = Resources.change_album(album)
+  def edit(conn, %{"hash" => hash}) do
+    album = Resources.get_album!(hash)
+    changeset = %Album{} |> Repo.preload(:tags) |> Resources.change_album()
     render(conn, "edit.html", album: album, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "album" => album_params}) do
-    album = Resources.get_album!(id)
+  def update(conn, %{"hash" => hash, "album" => album_params}) do
+    album = Resources.get_album!(hash)
 
     case Resources.update_album(album, album_params) do
       {:ok, album} ->
@@ -49,8 +49,8 @@ defmodule NpWeb.AlbumController do
     end
   end
 
-  def delete(conn, %{"id" => id}) do
-    album = Resources.get_album!(id)
+  def delete(conn, %{"hash" => hash}) do
+    album = Resources.get_album!(hash)
     {:ok, _album} = Resources.delete_album(album)
 
     conn

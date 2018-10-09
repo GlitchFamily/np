@@ -23,6 +23,9 @@ defmodule NpWeb.Router do
     post "/album/new",        AlbumController, :create
     get "/album/:hash",       AlbumController, :show
     get "/album/:hash/:slug", AlbumController, :show
+    get "/album/:hash/:slug/edit", AlbumController, :edit
+    patch "/album/:hash",   AlbumController, :update
+    delete "/album/:hash",  AlbumController, :delete
   end
 
   scope "/admin", NpWeb do
