@@ -25,14 +25,14 @@ defmodule NpWeb.AlbumController do
     end
   end
 
-  def show(conn, %{"hash" => hash}=params) do
+  def show(conn, %{"hash" => hash}=_params) do
     album = Resources.get_album!(hash)
     render(conn, "show.html", album: album)
   end
 
   def edit(conn, %{"hash" => hash}) do
-    album = Resources.get_album!(hash)
-    changeset = %Album{} |> Repo.preload(:tags) |> Resources.change_album()
+    album = Resources.get_album!(hash) |> IO.inspect
+    changeset = album |> Repo.preload(:tags) |> Resources.change_album() |> IO.inspect
     render(conn, "edit.html", album: album, changeset: changeset)
   end
 
