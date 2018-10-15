@@ -33,16 +33,15 @@ defmodule Np.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:cowboy, "~> 2.4"},
+      {:cowboy, "~> 2.5"},
       {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:phoenix, github: "phoenixframework/phoenix", override: true},
+      {:phoenix, "~> 1.4.0-rc", override: true},
       {:phoenix_ecto, "~> 3.4"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
-      {:plug, git: "https://github.com/elixir-plug/plug", branch: "master", override: true},
       {:postgrex, "~> 0.13"},
       {:scrivener_ecto, "~> 1.3"},
       {:slugger, "~> 0.3"},

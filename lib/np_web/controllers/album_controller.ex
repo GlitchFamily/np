@@ -31,19 +31,22 @@ defmodule NpWeb.AlbumController do
   end
 
   def edit(conn, %{"hash" => hash}) do
-    album = Resources.get_album!(hash) |> IO.inspect
-    changeset = album |> Repo.preload(:tags) |> Resources.change_album() |> IO.inspect
+    album = Resources.get_album!(hash) |> Repo.preload(:tags)
+    tags  = Enum.map(album.tags, fn t -> t.name end) |> Enum.join(", ")
+    album = Map.put(album, :tags, tags)
+    changeset = album |> Resources.change_album()
     render(conn, "edit.html", album: album, changeset: changeset)
   end
 
   def update(conn, %{"hash" => hash, "album" => album_params}) do
+    IO.inspect album_params
     album = Resources.get_album!(hash)
 
     case Resources.update_album(album, album_params) do
       {:ok, album} ->
         conn
         |> put_flash(:info, "Album updated successfully.")
-        |> redirect(to: Routes.album_path(conn, :show, album))
+        |> redirect(to: Routes.album_path(conn, :show, album.hash, album.slug))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", album: album, changeset: changeset)
     end

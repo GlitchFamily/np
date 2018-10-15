@@ -90,8 +90,12 @@ defmodule Np.Resources do
 
   """
   def update_album(%Album{} = album, attrs) do
+    attrs = attrs
+            |> group_links
+            |> atomify_map_keys()
+
     album
-    |> Album.changeset(attrs)
+    |> Album.update_changeset(attrs)
     |> Repo.update()
   end
 
