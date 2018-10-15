@@ -17,7 +17,10 @@ defmodule Np.Resources.Album do
 
     many_to_many :tags, Tag,
       join_through: "tagging",
-      on_replace: :delete
+      on_replace: :delete,
+      on_delete: :delete_all
+
+
 
     timestamps()
   end

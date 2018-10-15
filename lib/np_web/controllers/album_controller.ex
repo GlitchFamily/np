@@ -4,6 +4,7 @@ defmodule NpWeb.AlbumController do
   alias Np.Repo
   alias Np.Resources
   alias Np.Resources.Album
+  require Logger
 
   def index(conn, _params) do
     redirect(conn, to: "/")
@@ -53,6 +54,7 @@ defmodule NpWeb.AlbumController do
   end
 
   def delete(conn, %{"hash" => hash}) do
+    Logger.info "[!] Deleting album #{hash}"
     album = Resources.get_album!(hash)
     {:ok, _album} = Resources.delete_album(album)
 
