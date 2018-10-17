@@ -2,7 +2,7 @@
   <div class="container">
     <div class="album-layout">
       <div class="album-cover">
-        <img class="album-cover__visual" src="<%= Routes.static_path(@conn, @album.cover)%>" alt="Album Cover">
+        <img class="album-cover__visual" src="<%= Routes.static_path(@conn, @album.cover)%>" alt="Album Cover" title=":)">
       </div>
       <div class="album-infos">
         <h1 class="album-name"><%= @album.artist %></h1>

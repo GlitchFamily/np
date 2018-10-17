@@ -44,6 +44,11 @@
   text-decoration: none;
 }
 
+.catalog-item__content:active,
+.catalog-item__content:focus {
+  box-shadow: none;
+}
+
 .catalog-item__visual {
   position: relative;
   flex-shrink: 0;
@@ -56,14 +61,14 @@
   transition: all .2s;
 }
 
-.catalog-item:hover .catalog-item__visual,
-.catalog-item:active .catalog-item__visual,
-.catalog-item:focus .catalog-item__visual {
+.catalog-item__content:hover .catalog-item__visual,
+.catalog-item__content:active .catalog-item__visual,
+.catalog-item__content:focus .catalog-item__visual {
   transform: scale3d(1.05, 1.05, 1.05);
 }
 
-.catalog-item:active .catalog-item__visual,
-.catalog-item:focus .catalog-item__visual {
+.catalog-item__content:active .catalog-item__visual,
+.catalog-item__content:focus .catalog-item__visual {
   box-shadow: $focus-ring;
 }
 
