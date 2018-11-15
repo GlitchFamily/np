@@ -1,6 +1,7 @@
 defmodule Np.Utils do
 
   require Logger
+  import Mogrify
 
   def group_links(map) do
     links = map
@@ -34,9 +35,11 @@ defmodule Np.Utils do
         extension = Path.extname(cover.filename)
         :ok = File.mkdir_p("priv/static/images/covers/#{attrs.artist}")
         new_path = "priv/static/images/covers/#{attrs.artist}/#{attrs.name}#{extension}"
-        with {:ok, :exists} <- check_file_exists(cover.path),
-             :ok            <- File.cp(cover.path, new_path),
-             {:ok, :exists} <- check_file_exists(new_path) do
+        with {:ok, :exists}  <- check_file_exists(cover.path),
+             :ok             <- File.cp(cover.path, new_path),
+             {:ok, :exists}  <- check_file_exists(new_path),
+             image           <- open(new_path),
+             {:ok, :resized} <- resize_cover(image) do
               %{attrs|cover: "/images/covers/#{attrs.artist}/#{attrs.name}#{extension}"}
         else
           {:notfound, path} ->
@@ -58,5 +61,13 @@ defmodule Np.Utils do
     else
       {:notfound, path}
     end
+  end
+
+  defp resize_cover(%Mogrify.Image{}=image) do
+    extless_path = Path.rootname image.path
+    image |> resize("250x250")   |> save(path: extless_path <> "-250"  <> image.ext)
+    image |> resize("500x500")   |> save(path: extless_path <> "-500"  <> image.ext)
+    image |> resize("1000x1000") |> save(path: extless_path <> "-1000" <> image.ext)
+    {:ok, :resized}
   end
 end
