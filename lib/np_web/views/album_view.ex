@@ -16,4 +16,11 @@ defmodule NpWeb.AlbumView do
     |> Map.keys
     |> Enum.reject(fn k -> k == :id end)
   end
+
+  def size(path, size) do
+    extless_path = Path.rootname path
+    extension    = Path.extname  path
+
+    extless_path <> "-#{size}" <> extension
+  end
 end

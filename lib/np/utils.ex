@@ -47,6 +47,7 @@ defmodule Np.Utils do
         end
       is_binary(attrs.cover) ->
         new_path = "/images/covers/" <> Path.basename(attrs.cover)
+        open(attrs.cover) |> resize_cover
         %{attrs|cover: new_path}
       true -> 
         raise(ArgumentError, "Cover field not a map or a binary!!!: " <> inspect(attrs.cover))
