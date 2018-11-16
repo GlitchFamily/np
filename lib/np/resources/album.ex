@@ -20,8 +20,6 @@ defmodule Np.Resources.Album do
       on_replace: :delete,
       on_delete: :delete_all
 
-
-
     timestamps()
   end
 
