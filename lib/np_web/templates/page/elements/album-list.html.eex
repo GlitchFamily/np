@@ -4,8 +4,14 @@
     <a class="catalog-item__content" href="<%= Routes.album_path @conn, :show, album.hash, album.slug%>">
       <h2 class="catalog-item__album"><%= album.name%></h2>
       <div class="catalog-item__artist">by <%= album.artist%></div>
-      <%# <img class="catalog-item__visual" src="<%= Routes.static_path(@conn, album.cover)%>" alt=""> %>
-      <img class="catalog-item__visual" src="<%= Routes.static_path(@conn, size(album.cover, "500"))%>" alt="">
+      <img
+        class="catalog-item__visual"
+        src="<%= Routes.static_path(@conn, size(album.cover, "320"))%>"
+        srcset="<%= Routes.static_path(@conn, size(album.cover, "320"))%> 1x,
+                <%= Routes.static_path(@conn, size(album.cover, "640"))%> 2x"
+        alt="<%= album.name %> album's cover"
+        title="<%= album.name %> album's cover"
+      >
     </a>
     <a class="catalog-item__manage" href=" <%= Routes.album_path @conn, :edit, album.hash, album.slug%>">Manage</a>
   </div>

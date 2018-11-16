@@ -5,7 +5,7 @@ defmodule Np.Utils do
 
   def group_links(map) do
     links = map
-            |> Enum.filter(fn {k,_} -> String.starts_with?(k, "link_") end) 
+            |> Enum.filter(fn {k,_} -> String.starts_with?(k, "link_") end)
             |> Enum.map(fn {k,v} -> "link_" <> newk = k ; {newk,v} end)
             |> Enum.into(%{})
             |> atomify_map_keys
@@ -14,7 +14,7 @@ defmodule Np.Utils do
   end
 
   def atomify_map_keys(map) do
-    for {key, val} <- map, into: %{} do 
+    for {key, val} <- map, into: %{} do
       {transform(key), val}
     end
   end
@@ -49,7 +49,7 @@ defmodule Np.Utils do
         new_path = "/images/covers/" <> Path.basename(attrs.cover)
         open(attrs.cover) |> resize_cover
         %{attrs|cover: new_path}
-      true -> 
+      true ->
         raise(ArgumentError, "Cover field not a map or a binary!!!: " <> inspect(attrs.cover))
     end
   end
@@ -67,8 +67,8 @@ defmodule Np.Utils do
   defp resize_cover(%Mogrify.Image{}=image) do
     extless_path = Path.rootname image.path
     image |> resize("250x250")   |> save(path: extless_path <> "-250"  <> image.ext)
-    image |> resize("310x310")   |> save(path: extless_path <> "-310"  <> image.ext)
-    image |> resize("620x620")   |> save(path: extless_path <> "-620"  <> image.ext)
+    image |> resize("320x320")   |> save(path: extless_path <> "-320"  <> image.ext)
+    image |> resize("640x640")   |> save(path: extless_path <> "-640"  <> image.ext)
     image |> resize("500x500")   |> save(path: extless_path <> "-500"  <> image.ext)
     image |> resize("1000x1000") |> save(path: extless_path <> "-1000" <> image.ext)
     {:ok, :resized}
