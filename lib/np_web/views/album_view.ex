@@ -23,4 +23,8 @@ defmodule NpWeb.AlbumView do
 
     extless_path <> "-#{size}" <> extension
   end
+
+  def caller(conn) do
+    action_name(conn)
+  end
 end
