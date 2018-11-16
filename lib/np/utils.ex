@@ -67,6 +67,8 @@ defmodule Np.Utils do
   defp resize_cover(%Mogrify.Image{}=image) do
     extless_path = Path.rootname image.path
     image |> resize("250x250")   |> save(path: extless_path <> "-250"  <> image.ext)
+    image |> resize("310x310")   |> save(path: extless_path <> "-310"  <> image.ext)
+    image |> resize("620x620")   |> save(path: extless_path <> "-620"  <> image.ext)
     image |> resize("500x500")   |> save(path: extless_path <> "-500"  <> image.ext)
     image |> resize("1000x1000") |> save(path: extless_path <> "-1000" <> image.ext)
     {:ok, :resized}
