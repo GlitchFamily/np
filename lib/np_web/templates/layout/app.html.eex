@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Now Playing ∴ Handpicked Albums by the Glitch Family</title>
-    <link rel="stylesheet" href="<%= Routes.static_url(@conn, "/css/app.css") %>"/>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
     <% if @conn.private.phoenix_controller == NpWeb.PageController && @conn.private.phoenix_action == :index do %>
@@ -19,10 +19,15 @@
           <a class="header__logo glitch--hover" data-text="Now Playing" href="/" title="Homepage">Now Playing</a>
           <div class="header__tagline">Great music should be shared</div>
         </div>
-        <nav class="navigation">
-          <a class="navigation__item active hidden-xs" href="">Latest</a>
+        <nav class="navigation" data-menu="navigation">
+          <a class="navigation__item hidden-s-up" href="/">Home</a>
+          <a class="navigation__item navigation__item--admin" href="<%= Routes.album_path(@conn, :new) %>"><span class="hidden-xs-s">+&nbsp;</span>Add</a>
+          <a class="navigation__item active" href="">Latest</a>
           <a class="navigation__item" href="">Random</a>
+          <a class="navigation__item" href="">Logout</a>
         </nav>
+        <div class="navigation__mobileOverlay" data-menu="overlay"></div>
+        <button class="navigation__mobileBtn" data-menu="btn">Menu</button>
       </div>
     </header>
 

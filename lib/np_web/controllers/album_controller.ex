@@ -1,16 +1,17 @@
 defmodule NpWeb.AlbumController do
   use NpWeb, :controller
 
+  alias Np.Repo
   alias Np.Resources
   alias Np.Resources.Album
+  require Logger
 
   def index(conn, _params) do
-    albums = Resources.list_albums()
-    render(conn, "index.html", albums: albums)
+    redirect(conn, to: "/")
   end
 
   def new(conn, _params) do
-    changeset = Resources.change_album(%Album{})
+    changeset = %Album{} |> Repo.preload(:tags) |> Resources.change_album()
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -19,38 +20,42 @@ defmodule NpWeb.AlbumController do
       {:ok, album} ->
         conn
         |> put_flash(:info, "Album created successfully.")
-        |> redirect(to: Routes.album_path(conn, :show, album))
+        |> redirect(to: Routes.album_path(conn, :show, album.hash, album.slug))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
   end
 
-  def show(conn, %{"hash" => hash}) do
+  def show(conn, %{"hash" => hash}=_params) do
     album = Resources.get_album!(hash)
     render(conn, "show.html", album: album)
   end
 
-  def edit(conn, %{"id" => id}) do
-    album = Resources.get_album!(id)
-    changeset = Resources.change_album(album)
+  def edit(conn, %{"hash" => hash}) do
+    album = Resources.get_album!(hash) |> Repo.preload(:tags)
+    tags  = Enum.map(album.tags, fn t -> t.name end) |> Enum.join(", ")
+    album = Map.put(album, :tags, tags)
+    changeset = album |> Resources.change_album()
     render(conn, "edit.html", album: album, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "album" => album_params}) do
-    album = Resources.get_album!(id)
+  def update(conn, %{"hash" => hash, "album" => album_params}) do
+    IO.inspect album_params
+    album = Resources.get_album!(hash)
 
     case Resources.update_album(album, album_params) do
       {:ok, album} ->
         conn
         |> put_flash(:info, "Album updated successfully.")
-        |> redirect(to: Routes.album_path(conn, :show, album))
+        |> redirect(to: Routes.album_path(conn, :show, album.hash, album.slug))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", album: album, changeset: changeset)
     end
   end
 
-  def delete(conn, %{"id" => id}) do
-    album = Resources.get_album!(id)
+  def delete(conn, %{"hash" => hash}) do
+    Logger.info "[!] Deleting album #{hash}"
+    album = Resources.get_album!(hash)
     {:ok, _album} = Resources.delete_album(album)
 
     conn

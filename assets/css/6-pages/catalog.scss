@@ -29,15 +29,24 @@
 /* List
 -------------------------------------------------------------- */
 
-.catalog-item,
-.catalog-item:link,
-.catalog-item:visited {
-  display: flex;
-  flex-direction: column;
+.catalog-item {
+  position: relative;
   box-shadow: none;
   color: rgba($color-light-text, .8);
-  text-decoration: none;
   font-size: 1.8rem;
+}
+
+.catalog-item__content,
+.catalog-item__content:link,
+.catalog-item__content:visited {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.catalog-item__content:active,
+.catalog-item__content:focus {
+  box-shadow: none;
 }
 
 .catalog-item__visual {
@@ -52,14 +61,14 @@
   transition: all .2s;
 }
 
-.catalog-item:hover .catalog-item__visual,
-.catalog-item:active .catalog-item__visual,
-.catalog-item:focus .catalog-item__visual {
+.catalog-item__content:hover .catalog-item__visual,
+.catalog-item__content:active .catalog-item__visual,
+.catalog-item__content:focus .catalog-item__visual {
   transform: scale3d(1.05, 1.05, 1.05);
 }
 
-.catalog-item:active .catalog-item__visual,
-.catalog-item:focus .catalog-item__visual {
+.catalog-item__content:active .catalog-item__visual,
+.catalog-item__content:focus .catalog-item__visual {
   box-shadow: $focus-ring;
 }
 
@@ -73,4 +82,32 @@
 
 .catalog-item__artist {
   margin-top: .8rem;
+}
+
+/* Manage button
+-------------------------------------------------------------- */
+
+.catalog-item__manage:link,
+.catalog-item__manage:visited {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  margin-top: .5rem;
+  margin-left: .5rem;
+  padding: .5rem 1rem;
+  width: calc(100% - 1rem);
+  border-radius: .3rem;
+  background-color: darken($color-primary, 5%);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.6rem;
+  transition: .1s all;
+}
+
+.catalog-item__manage:hover,
+.catalog-item__manage:active,
+.catalog-item__manage:focus {
+  background-color: lighten($color-primary, 10%);
 }
