@@ -1,8 +1,10 @@
 defmodule Np.Resources.Album do
-  use Ecto.Schema
-  import Ecto.Changeset
   alias Np.Repo
+  alias Np.Resources.Album.Links
   alias Np.Resources.Tag
+  import Ecto.Changeset
+  require Logger
+  use Ecto.Schema
 
   schema "albums" do
     field :artist, :string
@@ -11,20 +13,12 @@ defmodule Np.Resources.Album do
     field :hash, :string
     field :slug, :string
     
-    embeds_one :links, Links do
-      field :amazonmusic, :string
-      field :applemusic, :string
-      field :bandcamp, :string
-      field :deezer, :string
-      field :googleplay, :string
-      field :soundcloud, :string
-      field :spotify, :string
-      field :youtube, :string
-    end
+    embeds_one :links, Links, on_replace: :delete
 
     many_to_many :tags, Tag,
       join_through: "tagging",
-      on_replace: :delete
+      on_replace: :delete,
+      on_delete: :delete_all
 
     timestamps()
   end
@@ -32,24 +26,36 @@ defmodule Np.Resources.Album do
 
   @doc false
   def changeset(album, attrs) do
-    tags = parse_tags(attrs.tags)
-
     album
     |> cast(attrs, [:name, :cover, :artist, :hash])
     |> cast_embed(:links, with: &links_changeset/2)
     |> validate_required([:name, :cover, :artist, :hash])
-    |> put_slug
+  end
+
+  def update_changeset(%__MODULE__{}=album, attrs \\ %{}) do
+    Logger.info "Updating #{attrs.name}"
+    tags = parse_tags(attrs.tags)
+    links = attrs.links 
+
+    album
+    |> changeset(attrs)
+    |> put_change(:links, links)
     |> put_assoc(:tags, tags) 
   end
 
   def register_changeset(%__MODULE__{}=album, attrs \\ %{}) do
-    links = attrs.links |> Enum.map(fn {k,v} -> {String.to_atom(k), v} end) |> Enum.into(%{})
+    Logger.info "Registering #{attrs.name}"
+    tags = parse_tags(attrs.tags)
+    links = attrs.links 
+
     album
     |> changeset(attrs)
     |> put_change(:links, links)
+    |> put_assoc(:tags, tags) 
+    |> put_slug
   end
 
-  def links_changeset(struct, attrs) do
+  defp links_changeset(struct, attrs) do
     struct
     |> cast(attrs, [:amazonmusic, :applemusic, :bandcamp, :deezer, :googleplay, :soundcloud, :spotify, :youtube])
   end

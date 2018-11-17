@@ -46,3 +46,18 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.navigation__item--admin:link,
+.navigation__item--admin:visited {
+  padding: .3rem 1rem;
+  border: .1rem solid rgba(#fff, .8);
+  border-radius: .3rem;
+}
+
+/* Mobile Menu
+-------------------------------------------------------------- */
+
+.navigation__mobileBtn,
+.navigation__mobileOverlay {
+  display: none;
+}

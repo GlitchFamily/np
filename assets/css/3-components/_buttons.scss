@@ -96,6 +96,24 @@ $btn-radius: .2rem;
   background-color: darken($btn-danger, $btn-hover);
 }
 
+.btn--link,
+.btn--link:link,
+.btn--link:visited {
+  display: inline;
+  padding: 0;
+  border: none;
+  background: none;
+  color: $color-light-text;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.btn--link:hover,
+.btn--link:active,
+.btn--link:focus {
+  text-decoration: underline;
+}
+
 /* size
 -------------------------------------------------------------- */
 

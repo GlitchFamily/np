@@ -9,9 +9,9 @@
 /* ----------------------------------------------------------- */
 
 
-$input-border-radius: .4rem;
-$input-border: .1rem solid #d8d8d8;
-$input-background-color: #fff;
+$input-border-radius: .3rem;
+$input-border: none;
+$input-background-color: rgba(#fff, .07);
 $input-hover: 5%;
 $input-placeholder-color: #c4c1be;
 $input-error: #ff3860;
@@ -40,13 +40,17 @@ textarea:-moz-placeholder {
 
 /* block form
 -------------------------------------------------------------- */
+.f-group {
+  margin-bottom: 3rem;
+}
 
 label,
 .label {
   display: block;
-  margin-top: 1.3em;
-  margin-bottom: .8em;
+  margin-top: 0;
+  margin-bottom: 1rem;
   vertical-align: middle;
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -79,7 +83,12 @@ label,
 fieldset {
   margin: 2.5rem 0;
   padding: 1em;
-  border: .1rem solid #d8d8d8;
+  border: .1rem solid rgba(#fff, .1);
+}
+
+legend {
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 
 input,
@@ -104,13 +113,13 @@ textarea {
 }
 
 input {
-  padding: .8em;
+  padding: 1em 1.3rem;
   max-width: 32rem;
   width: 100%;
   border: $input-border;
   border-radius: $input-border-radius;
   background: $input-background-color;
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, .08);
+  color: #fff;;
 }
 
 textarea:active,

@@ -33,21 +33,24 @@ defmodule Np.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:argon2_elixir, "~> 1.3.1"},
-      {:comeonin, "~> 4.1.1"},
-      {:cowboy, "~> 1.0"},
+      {:argon2_elixir, "~> 1.3"},
+      {:comeonin, "~> 4.1"},
+      {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
+      {:ecto_sql, "~> 3.0"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:phoenix, github: "phoenixframework/phoenix", override: true},
-      {:phoenix_ecto, "~> 3.2"},
+      {:mogrify, "~> 0.6"},
+      {:phoenix, "~> 1.4"},
+      {:phoenix_ecto, "~> 4.0"},
       {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:phoenix_pubsub, "~> 1.0"},
-      {:postgrex, "~> 0.13"},
-      {:scrivener_ecto, "~> 1.3.0"},
-      {:slugger, "~> 0.3.0"},
-      {:uuid, "~> 1.1.8"},
-      {:yaml_elixir, "~> 2.1.0"}
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_pubsub, "~> 1.1"},
+      {:plug_cowboy, "~> 2.0"},
+      {:postgrex, ">= 0.0.0"},
+      {:scrivener_ecto, "~> 2.0"},
+      {:slugger, "~> 0.3"},
+      {:uuid, "~> 1.1"},
+      {:yaml_elixir, "~> 2.1"}
     ]
   end
 
