@@ -11,6 +11,10 @@ defmodule NpWeb.AlbumView do
     Enum.all?(linkz, &is_nil(&1)) || Enum.all?(linkz, fn x -> x == "" end)
   end
 
+  def no_content(field) do
+    is_nil(field) || field == ""
+  end
+
   def links() do
     %Np.Resources.Album.Links{}
     |> Map.from_struct
