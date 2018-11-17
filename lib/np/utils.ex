@@ -13,14 +13,18 @@ defmodule Np.Utils do
     Map.put(nonlinks, :links, links)
   end
 
-  def atomify_map_keys(map) do
+  def atomify_map_keys(map) when is_map(map) do
     for {key, val} <- map, into: %{} do
-      {transform(key), val}
+      {transform(key), check_val(val)}
     end
   end
 
   defp transform(key) when is_binary(key), do: String.to_atom(key)
-  defp transform(key),                     do: key
+  defp transform(key) when is_atom(key),   do: key
+
+
+  defp check_val(val) when is_map(val), do: atomify_map_keys(val)
+  defp check_val(val),                  do: val
 
   def mkhash() do
     UUID.uuid1
@@ -73,4 +77,5 @@ defmodule Np.Utils do
     image |> resize("1000x1000") |> save(path: extless_path <> "-1000" <> image.ext)
     {:ok, :resized}
   end
+
 end

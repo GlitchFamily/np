@@ -3,11 +3,12 @@ defmodule NpWeb.AlbumView do
   alias Np.Resources.Album
 
   def no_links?(%Album{}=album) do
-    album.links
-    |> Map.from_struct
-    |> Map.delete(:id)
-    |> Map.values
-    |> Enum.all?(&is_nil(&1))
+    linkz = album.links
+            |> Map.from_struct
+            |> Map.delete(:id)
+            |> Map.values
+
+    Enum.all?(linkz, &is_nil(&1)) || Enum.all?(linkz, fn x -> x == "" end)
   end
 
   def links() do

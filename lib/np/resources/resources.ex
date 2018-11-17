@@ -27,6 +27,7 @@ defmodule Np.Resources do
 
   def list_albums(limit: limit, offset: offset) do
     Album
+    |> order_by(desc: :inserted_at)
     |> Repo.paginate(page: offset, page_size: limit)
   end
 
@@ -65,7 +66,7 @@ defmodule Np.Resources do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_album(attrs \\ %{}) do
+  def create_album(attrs) when is_map(attrs) do
     attrs = attrs
             |> group_links
             |> atomify_map_keys()
