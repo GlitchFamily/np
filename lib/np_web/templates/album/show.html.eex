@@ -58,6 +58,11 @@
                   <%= render_existing NpWeb.PageView, "social/google-play.html", assigns %>
                 </a>
               <% end %>
+              <%= if @album.links.deezer != "" do %>
+                <a class="album-links__item tooltip tooltip--bottom" aria-label="Deezer" data-tooltip="Deezer" href="<%= Map.get(@album.links, :deezer) %>" target="_blank" rel="noreferrer">
+                  <%= render_existing NpWeb.PageView, "social/deezer.html", assigns %>
+                </a>
+              <% end %>
             </div>
           <% end %>
       </div>
