@@ -1,10 +1,17 @@
-    <h1>Login</h1>
-      <%= form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f -> %>
-        <div class="form-group">
-           <%= text_input f, :username, placeholder: "Username", class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= password_input f, :password, placeholder: "Password", class: "form-control" %>
-        </div>
-        <%= submit "Log in", class: "btn btn-primary" %>
-      <% end %>
+
+<div class="auth">
+  <div class="auth-container">
+    <h1 class="auth-title">Login</h1>
+    <%= form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f -> %>
+      <div class="f-group">
+        <%= label f, :username, "Username", class: "visually-hidden" %>
+        <%= text_input f, :username, placeholder: "Username", class: "f-size-full w100" %>
+      </div>
+      <div class="f-group">
+        <%= label f, :password, "Password", class: "visually-hidden" %>
+        <%= password_input f, :password, placeholder: "Password", class: "f-size-full w100" %>
+      </div>
+      <%= submit "Log in", class: "btn btn--primary w100" %>
+    <% end %>
+  </div>
+</div>
