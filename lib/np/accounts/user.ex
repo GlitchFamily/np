@@ -16,17 +16,18 @@ defmodule Np.Accounts.User do
 
   def changeset(%User{} = user, attrs \\ %{}) do
     user
-    |> cast(attrs, [:username])
-    |> validate_required([:username])
+    |> cast(attrs, [:username, :email])
+    |> validate_required([:username, :email])
     |> validate_length(:username, min: 3, max: 35)
+    |> validate_format(:email, ~r/@/)
     |> unique_constraint(:username)
  end
 
   def registration_changeset(%User{}=user, attrs \\ %{}) do
     user
     |> changeset(attrs)
-    |> cast(attrs, :password)
-    |> validate_required(:password, min: 6)
+    |> cast(attrs, [:password])
+    |> validate_length(:password, min: 6)
     |> put_pass_hash()
   end
 
@@ -34,5 +35,5 @@ defmodule Np.Accounts.User do
         change(changeset, Comeonin.Argon2.add_hash(pass))
   end
 
-  defp put_hash_pass(changeset), do: changeset
+  defp put_pass_hash(changeset), do: changeset
 end
