@@ -17,9 +17,13 @@ defmodule NpWeb.Router do
   scope "/", NpWeb do
     pipe_through :browser # Use the default browser stack
 
-    resources "/login",            SessionController, only: [:new, :create, :delete]
+    get "/login",                  SessionController, :new
+    post "/login",                 SessionController, :create
+    delete "/login/:id",           SessionController, :delete
+
     get "/",                       PageController, :index
     get "/page/:number",           PageController, :page
+
     get "/album/index",            AlbumController, :index
     get "/album/new",              AlbumController, :new
     post "/album/new",             AlbumController, :create
