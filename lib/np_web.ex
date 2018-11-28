@@ -24,6 +24,7 @@ defmodule NpWeb do
       import Plug.Conn
       import NpWeb.Gettext
       alias NpWeb.Router.Helpers, as: Routes
+      import NpWeb.Auth, only: [authenticate_user: 2]
     end
   end
 
@@ -50,6 +51,7 @@ defmodule NpWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import NpWeb.Auth, only: [authenticate_user: 2]
     end
   end
 

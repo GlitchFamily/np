@@ -1,6 +1,8 @@
 defmodule NpWeb.AlbumController do
   use NpWeb, :controller
 
+  plug :authenticate_user when action in [:new, :create, :edit, :update, :delete]
+
   alias Np.Repo
   alias Np.Resources
   alias Np.Resources.Album
