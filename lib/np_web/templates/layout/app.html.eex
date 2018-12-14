@@ -27,10 +27,10 @@
           <a class="navigation__item active" href="/">Latest</a>
           <a class="navigation__item" href="">Random</a>
           <%= if @current_user do %>
-            <a class="navigation__item under" href=""><%= @current_user.username %></a>
-            <%= link "Log out", to: Routes.session_path(@conn, :delete, @current_user), method: "delete", class: "navigation__item" %>
+          <div class="navigation__item navigation__item--thin hidden-xs hidden-s">(<%= @current_user.username %>)</div>
+          <%= link "Log out", to: Routes.session_path(@conn, :delete, @current_user), method: "delete", class: "navigation__item navigation__item--near" %>
           <% else %>
-            <%= link "Log in", to: Routes.session_path(@conn, :new), class: "navigation__item" %>
+            <%= link "Login", to: Routes.session_path(@conn, :new), class: "navigation__item" %>
           <% end %>
 
         </nav>
