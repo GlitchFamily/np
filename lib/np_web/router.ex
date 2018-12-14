@@ -19,7 +19,7 @@ defmodule NpWeb.Router do
 
     get "/login",                  SessionController, :new
     post "/login",                 SessionController, :create
-    delete "/login/:id",           SessionController, :delete
+    delete "/login/:hash",         SessionController, :delete
 
     get "/",                       PageController, :index
     get "/page/:number",           PageController, :page
@@ -32,12 +32,6 @@ defmodule NpWeb.Router do
     get "/album/:hash/:slug",      AlbumController, :show
     get "/album/:hash/:slug/edit", AlbumController, :edit
     put "/album/:hash",            AlbumController, :update
-  end
-
-  scope "/admin", NpWeb do
-    pipe_through :browser
-
-    resources "/album", AdminController, only: [:new, :create, :delete, :edit]
   end
 
   # Other scopes may use custom stacks.
