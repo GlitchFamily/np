@@ -3,6 +3,7 @@ defmodule Np.Config do
 
   @impl Provider
   def init(_) do
+    IO.puts IO.ANSI.magenta <> "Fetching Environement Configuration…" <> IO.ANSI.reset
     port            = System.get_env("PORT")
     hostname        = System.get_env("HOSTNAME")
     secret_key_base = System.get_env("SECRET_KEY_BASE")

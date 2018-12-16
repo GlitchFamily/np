@@ -48,7 +48,12 @@ end
 
 release :np do
   set config_providers: [
-    Np.Config
+    Np.Config,
+    {Mix.Releases.Config.Providers.Elixir, ["${RELEASE_ROOT_DIR}/config/config.exs"]},
+    {Mix.Releases.Config.Providers.Elixir, ["${RELEASE_ROOT_DIR}/config/prod.exs"]},
+  ]
+  set overlays: [
+    {:copy, "config", "config"}
   ]
   set commands: [
     migrate: "rel/commands/migrate.sh",
