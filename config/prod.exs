@@ -10,19 +10,10 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :np, NpWeb.Endpoint,
-  http: [ 
-    ip: elem(:inet.parse_address(to_charlist(System.get_env("ALWAYSDATA_HTTPD_IP"))), 1), 
-    port: System.get_env("ALWAYSDATA_HTTPD_PORT") 
-  ],
-  url: [host: System.get_env("HOSTNAME"), port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  server: true,
+  root: ".",
+  version: Application.spec(:phoenix_distillery, :vsn)
 
 # Do not print debug messages in production
 config :logger, level: :info
-
-config :np, NpWeb.Endpoint,
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
-
-config :np, Np.Repo,
-  url: System.get_env("DATABASE_URL"),
-  pool_size: 10

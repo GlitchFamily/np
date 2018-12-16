@@ -35,7 +35,8 @@ defmodule Np.MixProject do
     [
       {:argon2_elixir, "~> 1.3"},
       {:comeonin, "~> 4.1"},
-      {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.0.0-rc.4", only: [:dev], runtime: false},
+      {:distillery, "~> 2.0", runtime: false, only: [:prod]},
       {:ecto_sql, "~> 3.0"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
