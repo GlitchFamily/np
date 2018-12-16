@@ -17,7 +17,7 @@ defmodule Np do
 
     def repos, do: Application.get_env(:np, :ecto_repos, [])
 
-    def seed do
+    def seed(_) do
       Application.start(:logger)
 
       Logger.info "Starting NP"
@@ -34,7 +34,7 @@ defmodule Np do
       Enum.each(repos(), &(&1.start_link(pool_size: 1)))
 
       # Run migrations
-      migrate()
+      migrate(:ko)
 
       # Run seed script
       Enum.each(repos(), &run_seeds_for/1)
@@ -44,7 +44,7 @@ defmodule Np do
       :init.stop()
     end
 
-    def migrate, do: Enum.each(repos(), &run_migrations_for/1)
+    def migrate(_), do: Enum.each(repos(), &run_migrations_for/1)
 
     def priv_dir(app), do: "#{:code.priv_dir(app)}"
 
