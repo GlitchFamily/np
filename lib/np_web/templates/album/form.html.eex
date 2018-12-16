@@ -44,11 +44,11 @@
 
   <fieldset>
     <legend>Links</legend>
-    <%= for link <- links() do %>
+    <%= for {service, link} <- @album.links do %>
       <div class="f-group">
-        <%= label f, "#{link} link" %>
-        <%= text_input f, String.to_atom("link_#{link}"), [class: "f-size-full w100"] %>
-        <% error_tag f, String.to_atom("link_#{link}")%>
+        <%= label f, "#{service} link" %>
+        <%= text_input f, String.to_atom("link_#{service}"), [value: link, class: "f-size-full w100"] %>
+        <% error_tag f, String.to_atom("link_#{service}")%>
       </div>
     <% end %>
   </fieldset>
