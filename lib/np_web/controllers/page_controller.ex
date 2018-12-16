@@ -2,7 +2,7 @@ defmodule NpWeb.PageController do
   use NpWeb, :controller
 
   def page(conn, %{"number" => offset}) do
-    page = Np.Resources.list_albums(limit: 6, offset: offset)
+    page = Np.Resources.list_albums(limit: 24, offset: offset)
     case offset do
       "1" ->
         render conn, "home.html", albums: page.entries, page: page
@@ -12,7 +12,7 @@ defmodule NpWeb.PageController do
   end
 
   def index(conn, _params) do
-    page = Np.Resources.list_albums(limit: 6, offset: 1)
+    page = Np.Resources.list_albums(limit: 24, offset: 1)
     render conn, "home.html", albums: page.entries, page: page
   end
 

@@ -7,6 +7,7 @@ defmodule NpWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug NpWeb.Auth
   end
 
   pipeline :api do
@@ -16,8 +17,13 @@ defmodule NpWeb.Router do
   scope "/", NpWeb do
     pipe_through :browser # Use the default browser stack
 
+    get "/login",                  SessionController, :new
+    post "/login",                 SessionController, :create
+    delete "/login/:hash",         SessionController, :delete
+
     get "/",                       PageController, :index
     get "/page/:number",           PageController, :page
+
     get "/album/index",            AlbumController, :index
     get "/album/new",              AlbumController, :new
     post "/album/new",             AlbumController, :create
@@ -26,10 +32,6 @@ defmodule NpWeb.Router do
     get "/album/:hash/:slug",      AlbumController, :show
     get "/album/:hash/:slug/edit", AlbumController, :edit
     put "/album/:hash",            AlbumController, :update
-  end
-
-  scope "/admin", NpWeb do
-    pipe_through :browser
   end
 
   # Other scopes may use custom stacks.

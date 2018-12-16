@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Now Playing ∴ Handpicked Albums by the Glitch Family</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= Routes.static_path(@conn, "/images/favicons/apple-touch-icon.png") %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= Routes.static_path(@conn, "/images/favicons/favicon-32x32.png") %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= Routes.static_path(@conn, "/images/favicons/favicon-16x16.png") %>">
+    <link rel="manifest" href="<%= Routes.static_path(@conn, "/images/favicons/site.webmanifest") %>">
+    <link rel="mask-icon" href="<%= Routes.static_path(@conn, "/images/favicons/safari-pinned-tab.svg") %>" color="#ff2749">
+    <meta name="msapplication-TileColor" content="#0e1848">
+    <meta name="theme-color" content="#0e1848">
+
   </head>
   <body>
     <% if @conn.private.phoenix_controller == NpWeb.PageController && @conn.private.phoenix_action == :index do %>
@@ -21,10 +30,18 @@
         </div>
         <nav class="navigation" data-menu="navigation">
           <a class="navigation__item hidden-s-up" href="/">Home</a>
-          <a class="navigation__item navigation__item--admin" href="<%= Routes.album_path(@conn, :new) %>"><span class="hidden-xs-s">+&nbsp;</span>Add</a>
-          <a class="navigation__item active" href="">Latest</a>
+          <%= if @current_user do %>
+            <a class="navigation__item navigation__item--admin" href="<%= Routes.album_path(@conn, :new) %>"><span class="hidden-xs-s">+&nbsp;</span>Add</a>
+          <% end %>
+          <a class="navigation__item active" href="/">Latest</a>
           <a class="navigation__item" href="">Random</a>
-          <a class="navigation__item" href="">Logout</a>
+          <%= if @current_user do %>
+          <div class="navigation__item navigation__item--thin hidden-xs hidden-s">(<%= @current_user.username %>)</div>
+          <%= link "Log out", to: Routes.session_path(@conn, :delete, @current_user), method: "delete", class: "navigation__item navigation__item--near" %>
+          <% else %>
+            <%= link "Login", to: Routes.session_path(@conn, :new), class: "navigation__item" %>
+          <% end %>
+
         </nav>
         <div class="navigation__mobileOverlay" data-menu="overlay"></div>
         <button class="navigation__mobileBtn" data-menu="btn">Menu</button>
