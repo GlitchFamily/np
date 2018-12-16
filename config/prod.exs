@@ -20,4 +20,9 @@ config :np, NpWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
-import_config "prod.secret.exs"
+config :np, NpWeb.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+config :np, Np.Repo,
+  url: System.get_env("DATABASE_URL"),
+  pool_size: 10
