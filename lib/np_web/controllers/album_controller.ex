@@ -14,7 +14,8 @@ defmodule NpWeb.AlbumController do
 
   def new(conn, _params) do
     changeset = %Album{} |> Repo.preload(:tags) |> Resources.change_album()
-    render(conn, "new.html", changeset: changeset)
+    links = Map.from_struct(%Np.Resources.Album.Links{}) |> Map.delete(:id)
+    render(conn, "new.html", changeset: changeset, album: %{links: links})
   end
 
   def create(conn, %{"album" => album_params}) do

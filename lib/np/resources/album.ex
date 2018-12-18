@@ -80,7 +80,7 @@ defmodule Np.Resources.Album do
 
 end
 
-defimpl Enumerable, for: Np.Resources.Album.Links do
+defimpl Enumerable, for: [Np.Resources.Album.Links, Plug.Upload] do
 
 	def sanitize(map) do
     map
