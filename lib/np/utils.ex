@@ -3,10 +3,11 @@ defmodule Np.Utils do
   require Logger
   import Mogrify
 
-  case Mix.env() do
-    :prod -> @static_path Application.get_env(:np, :static_path)
-    _     -> @static_path "priv/static/images/covers"
-  end
+  Module.register_attribute __MODULE__,
+    :images_path,
+    accumulate: false, persist: true
+
+  Module.put_attribute(__MODULE__, :images_path, Np.set_images_path())
 
   def group_links(map) do
     links = map
@@ -42,8 +43,8 @@ defmodule Np.Utils do
       is_map(attrs.cover) ->
         cover     = attrs.cover
         extension = Path.extname(cover.filename)
-        :ok = File.mkdir_p("#{@static_path}/#{attrs.artist}")
-        new_path = "#{@static_path}/#{attrs.artist}/#{attrs.name}#{extension}"
+        :ok = File.mkdir_p("#{@images_path}/#{attrs.artist}")
+        new_path = "#{@images_path}/#{attrs.artist}/#{attrs.name}#{extension}"
         with {:ok, :exists}  <- check_file_exists(cover.path),
              :ok             <- File.cp(cover.path, new_path),
              {:ok, :exists}  <- check_file_exists(new_path),
@@ -83,6 +84,14 @@ defmodule Np.Utils do
     {:ok, :resized}
   end
 
+  def get_env(var) do
+    case System.get_env(var) do
+      nil -> 
+        raise(ArgumentError, "Variable #{var} absent from environment")
+        System.stop(1)
+      value -> value
+    end
+  end
 
-  def get_static_path(), do: @static_path
+  def get_images_path(), do: @images_path
 end

@@ -1,5 +1,6 @@
 defmodule Np.Config do
   use Mix.Releases.Config.Provider
+  import Np.Utils, only: [get_env: 1]
 
   @impl Provider
   def init(_) do
@@ -21,17 +22,8 @@ defmodule Np.Config do
       pool_size: 10
     ])
 
-    static_path = get_env("NP_STATIC_PATH")
-    Application.put_env(:np, :static_path, static_path)
-  end
-
-  defp get_env(var) do
-    case System.get_env(var) do
-      nil -> 
-        raise(ArgumentError, "Variable #{var} absent from environment")
-        System.stop(1)
-      value -> value
-    end
+    images_path = get_env("NP_IMAGES_PATH")
+    Application.put_env(:np, :images_path, images_path)
   end
 
   def merge(config1, config2) do

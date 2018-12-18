@@ -7,6 +7,13 @@ defmodule Np do
   if it comes from the database, an external API or others.
   """
 
+  def set_images_path() do
+    case Mix.env() do
+      :prod -> Application.get_env(:np, :images_path)
+      _     -> "priv/static/images/covers"
+    end
+  end
+
   defmodule Releases do
     @start_apps [
       :crypto,
