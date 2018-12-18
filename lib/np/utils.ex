@@ -83,4 +83,6 @@ defmodule Np.Utils do
     {:ok, :resized}
   end
 
+
+  def get_static_path(), do: @static_path
 end
