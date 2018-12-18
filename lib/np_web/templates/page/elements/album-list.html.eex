@@ -13,7 +13,9 @@
         title="<%= album.name %> album's cover"
       >
     </a>
-    <a class="catalog-item__manage" href=" <%= Routes.album_path @conn, :edit, album.hash, album.slug%>">Manage</a>
+    <%= if @current_user do %>
+      <a class="catalog-item__manage" href=" <%= Routes.album_path @conn, :edit, album.hash, album.slug%>">Manage</a>
+    <% end %>
   </div>
   <% end %>
 </div>
