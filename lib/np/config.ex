@@ -20,6 +20,9 @@ defmodule Np.Config do
       url: database_url,
       pool_size: 10
     ])
+
+    static_path = get_env("NP_STATIC_PATH")
+    Application.put_env(:np, :static_path, static_path)
   end
 
   defp get_env(var) do

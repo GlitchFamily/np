@@ -1,6 +1,6 @@
 defmodule Np.UserController do
   use NpWeb, :controller
-  alias Np.User
+  # alias Np.User
 
   # plug :authenticate_user when action in [:index, :show]
 

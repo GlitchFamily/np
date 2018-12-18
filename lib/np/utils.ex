@@ -3,6 +3,11 @@ defmodule Np.Utils do
   require Logger
   import Mogrify
 
+  case Mix.env() do
+    :prod -> @static_path Application.get_env(:np, :static_path)
+    _     -> @static_path "priv/static/images/covers"
+  end
+
   def group_links(map) do
     links = map
             |> Enum.filter(fn {k,_} -> String.starts_with?(k, "link_") end)
@@ -37,8 +42,8 @@ defmodule Np.Utils do
       is_map(attrs.cover) ->
         cover     = attrs.cover
         extension = Path.extname(cover.filename)
-        :ok = File.mkdir_p("priv/static/images/covers/#{attrs.artist}")
-        new_path = "priv/static/images/covers/#{attrs.artist}/#{attrs.name}#{extension}"
+        :ok = File.mkdir_p("#{@static_path}/#{attrs.artist}")
+        new_path = "#{@static_path}/#{attrs.artist}/#{attrs.name}#{extension}"
         with {:ok, :exists}  <- check_file_exists(cover.path),
              :ok             <- File.cp(cover.path, new_path),
              {:ok, :exists}  <- check_file_exists(new_path),
