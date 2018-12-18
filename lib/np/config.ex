@@ -17,7 +17,6 @@ defmodule Np.Config do
 
     Application.put_env(:np, Np.Repo, [
       url: database_url,
-      show_sensitive_data_on_connection_error: true,
       pool_size: 10
     ])
   end

@@ -6,6 +6,7 @@ defmodule Np.Application do
   use Application
 
   def start(_type, _args) do
+    IO.inspect(Application.get_env(:np, Np.Repo))
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
