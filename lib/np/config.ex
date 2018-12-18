@@ -3,11 +3,10 @@ defmodule Np.Config do
 
   @impl Provider
   def init(_) do
-    IO.puts IO.ANSI.magenta <> "Fetching Environement Configuration…" <> IO.ANSI.reset
-    port            = System.get_env("PORT")
-    hostname        = System.get_env("HOSTNAME")
-    secret_key_base = System.get_env("SECRET_KEY_BASE")
-    database_url    = System.get_env("DATABASE_URL")
+    port            = get_env("PORT")
+    hostname        = get_env("HOSTNAME")
+    secret_key_base = get_env("SECRET_KEY_BASE")
+    database_url    = get_env("DATABASE_URL")
 
     Application.put_env(:np, NpWeb.Endpoint, [
       http: [:inet6, port: port || 4000],
@@ -19,5 +18,14 @@ defmodule Np.Config do
       url: database_url,
       pool_size: 10
     ])
+  end
+
+  defp get_env(var) do
+    case System.get_env(var) do
+      nil -> 
+        raise(ArgumentError, "Variable #{var} absent from environment")
+        System.stop(1)
+      value -> value
+    end
   end
 end
