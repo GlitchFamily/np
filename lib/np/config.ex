@@ -8,6 +8,7 @@ defmodule Np.Config do
     hostname        = get_env("HOSTNAME")
     secret_key_base = get_env("SECRET_KEY_BASE")
     database_url    = get_env("DATABASE_URL")
+    images_path     = get_env("NP_IMAGES_PATH")
 
     conf = [endpoint: Application.get_env(:np, NpWeb.Endpoint)]
     new_conf = [endpoint: [http: [:inet6, port: port || 4000],
@@ -22,7 +23,6 @@ defmodule Np.Config do
       pool_size: 10
     ])
 
-    images_path = get_env("NP_IMAGES_PATH")
     Application.put_env(:np, :images_path, images_path)
   end
 

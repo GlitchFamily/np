@@ -9,7 +9,7 @@ defmodule Np do
 
   def set_images_path() do
     case Mix.env() do
-      :prod -> Application.get_env(:np, :images_path)
+      :prod -> Application.fetch_env!(:np, :images_path)
       _     -> "priv/static/images/covers"
     end
   end
