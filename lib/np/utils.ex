@@ -5,6 +5,8 @@ defmodule Np.Utils do
 
   @images_path Application.get_env(:np, :images_path)
 
+  def get_img_path(), do: @images_path
+
   def group_links(map) do
     links = map
             |> Enum.filter(fn {k,_} -> String.starts_with?(k, "link_") end)
