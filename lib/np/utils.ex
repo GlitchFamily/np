@@ -42,10 +42,10 @@ defmodule Np.Utils do
       is_map(attrs.cover) ->
         cover     = attrs.cover
         extension = Path.extname(cover.filename)
-        IO.puts("#{covers_path}/#{attrs.artist}")
-        File.mkdir_p!("#{covers_path}/#{attrs.artist}")
-        new_path = "#{covers_path}/#{attrs.artist}/#{attrs.name}#{extension}"
-        with {:ok, :exists}  <- check_file_exists(cover.path),
+        IO.puts("#{covers_path()}/#{attrs.artist}")
+        File.mkdir_p!("#{covers_path()}/#{attrs.artist}")
+        new_path = "#{covers_path()}/#{attrs.artist}/#{attrs.name}#{extension}"
+        with {:ok, :exists}  <- check_file_exists(cover.path()),
              :ok             <- File.cp(cover.path, new_path),
              {:ok, :exists}  <- check_file_exists(new_path),
              image           <- open(new_path),
