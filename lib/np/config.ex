@@ -8,7 +8,7 @@ defmodule Np.Config do
     hostname        = get_env("HOSTNAME")
     secret_key_base = get_env("SECRET_KEY_BASE")
     database_url    = get_env("DATABASE_URL")
-    static_path     = get_env("NP_IMAGES_PATH")
+    static_path     = get_env("NP_STATIC_PATH")
 
     conf = [endpoint: Application.get_env(:np, NpWeb.Endpoint)]
     new_conf = [endpoint: [http: [:inet6, port: port || 4000],
