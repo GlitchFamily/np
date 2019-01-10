@@ -54,6 +54,15 @@ defmodule Np.Resources do
     Repo.all from a in Album, preload: [:tags]
   end
 
+  def get_random_album!() do
+    query = from Album,
+            order_by: fragment("RANDOM()"),
+            preload: [:tags],
+            limit: 1
+
+    Repo.all(query) |> hd
+  end
+
   @doc """
   Creates a album.
 

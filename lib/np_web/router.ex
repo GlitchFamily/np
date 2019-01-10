@@ -24,6 +24,7 @@ defmodule NpWeb.Router do
     get "/",                       PageController, :index
     get "/page/:number",           PageController, :page
 
+    get "/random",                 AlbumController, :random
     get "/album/index",            AlbumController, :index
     get "/album/new",              AlbumController, :new
     post "/album/new",             AlbumController, :create

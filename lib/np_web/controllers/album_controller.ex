@@ -34,6 +34,11 @@ defmodule NpWeb.AlbumController do
     render(conn, "show.html", album: album)
   end
 
+  def random(conn, _) do
+    album = Resources.get_random_album!()
+    render(conn, "show.html", album: album)
+  end
+
   def edit(conn, %{"hash" => hash}) do
     album = Resources.get_album!(hash) |> Repo.preload(:tags)
     tags  = Enum.map(album.tags, fn t -> t.name end) |> Enum.join(", ")

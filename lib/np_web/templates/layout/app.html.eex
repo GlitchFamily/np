@@ -34,7 +34,7 @@
             <a class="navigation__item navigation__item--admin" href="<%= Routes.album_path(@conn, :new) %>"><span class="hidden-xs-s">+&nbsp;</span>Add</a>
           <% end %>
           <a class="navigation__item active" href="/">Latest</a>
-          <%# <a class="navigation__item" href="">Random</a> %>
+          <%= link "Random", to: Routes.album_path(@conn, :random), class: "navigation__item" %>
           <%= if @current_user do %>
           <div class="navigation__item navigation__item--thin hidden-xs hidden-s">(<%= @current_user.username %>)</div>
           <%= link "Log out", to: Routes.session_path(@conn, :delete, @current_user), method: "delete", class: "navigation__item navigation__item--near" %>
