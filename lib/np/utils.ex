@@ -3,11 +3,7 @@ defmodule Np.Utils do
   require Logger
   import Mogrify
 
-  Module.register_attribute __MODULE__,
-    :images_path,
-    accumulate: false, persist: true
-
-  Module.put_attribute(__MODULE__, :images_path, Np.set_images_path())
+  @images_path Application.get_env(:np, :images_path)
 
   def group_links(map) do
     links = map
@@ -93,6 +89,4 @@ defmodule Np.Utils do
       value -> value
     end
   end
-
-  def get_images_path(), do: @images_path
 end
