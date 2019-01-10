@@ -18,5 +18,14 @@ To start your Phoenix server:
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 
+## Production
+
+1. Clone the respository
+2. Make the release
+3. Move the assets to the appropriate location on your filesystem
+4. Create the DB
+5. Migrate the DB
+7. Run the app.
+
 ## Credits
   * [Higgcss](https://github.com/robinparisi/higgcss) - The minimal CSS framework
