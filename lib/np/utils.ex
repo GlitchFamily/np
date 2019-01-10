@@ -3,9 +3,10 @@ defmodule Np.Utils do
   require Logger
   import Mogrify
 
-  def images_path(), do: Application.get_env(:np, :images_path)
+  def static_path(), do: Application.get_env(:np, :static_path)
+  def covers_path(), do: Application.get_env(:np, :static_path) <> "/images/covers"
 
-  def get_img_path(), do: images_path
+  def get_img_path(), do: static_path
 
   def group_links(map) do
     links = map
@@ -41,9 +42,9 @@ defmodule Np.Utils do
       is_map(attrs.cover) ->
         cover     = attrs.cover
         extension = Path.extname(cover.filename)
-        IO.puts("#{images_path}/#{attrs.artist}")
-        File.mkdir_p!("#{images_path}/#{attrs.artist}")
-        new_path = "#{images_path}/#{attrs.artist}/#{attrs.name}#{extension}"
+        IO.puts("#{covers_path}/#{attrs.artist}")
+        File.mkdir_p!("#{covers_path}/#{attrs.artist}")
+        new_path = "#{covers_path}/#{attrs.artist}/#{attrs.name}#{extension}"
         with {:ok, :exists}  <- check_file_exists(cover.path),
              :ok             <- File.cp(cover.path, new_path),
              {:ok, :exists}  <- check_file_exists(new_path),

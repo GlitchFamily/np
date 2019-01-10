@@ -7,9 +7,9 @@ defmodule Np do
   if it comes from the database, an external API or others.
   """
 
-  def set_images_path() do
+  def set_static_path() do
     case Mix.env() do
-      :prod -> Application.fetch_env!(:np, :images_path)
+      :prod -> Application.fetch_env!(:np, :static_path)
       _     -> "priv/static/images/covers"
     end
   end
