@@ -20,7 +20,7 @@ defmodule Np.MixProject do
   def application do
     [
       mod: {Np.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :np]
     ]
   end
 
